@@ -20,7 +20,7 @@ const RainbowSpans = ({ word }) => {
           key={index}
           style={{
             color: colorArr[index % 4],
-            fontFamily: "Press Start 2P, sans-serif",
+            fontFamily: '"Press Start 2P", sans-serif',
           }}
         >
           {letter}
