@@ -1,6 +1,6 @@
 import React from "react";
 import headerStyles from "../styles/Header.module.sass";
-import { AppBar, Toolbar, Typography, Link } from "@mui/material";
+import { AppBar, Toolbar, Icon, Link } from "@mui/material";
 import { useRef, useState } from "react";
 
 const CustomHeader = () => {
@@ -30,6 +30,8 @@ const CustomHeader = () => {
           padding: 0,
         }}
       >
+        <i className="snes-jp-logo"></i>
+
         <Link
           variant="h6"
           href="/"
@@ -60,10 +62,14 @@ const CustomHeader = () => {
       >
         <ul className="nes-list is-circle">
           <li>
-            <a href="">Home</a>
+            <Link href="/">
+              <a>Home</a>
+            </Link>
           </li>
           <li>
-            <a href="">About</a>
+            <Link href="/about">
+              <a>About</a>
+            </Link>
           </li>
           <li>
             <a href="">Projects</a>
