@@ -1,6 +1,6 @@
 import React from "react";
 import headerStyles from "../styles/Header.module.sass";
-import { AppBar, Toolbar, Typography } from "@mui/material";
+import { AppBar, Toolbar, Typography, Link } from "@mui/material";
 import { useRef, useState } from "react";
 
 const CustomHeader = () => {
@@ -30,13 +30,15 @@ const CustomHeader = () => {
           padding: 0,
         }}
       >
-        <Typography
+        <Link
           variant="h6"
-          component="h6"
-          sx={{ fontFamily: `"Press Start 2P"`, paddingLeft: "16px" }}
+          href="/"
+          underline="none"
+          className={headerStyles.h6}
         >
           Levon Ritter
-        </Typography>
+        </Link>
+
         <div className={headerStyles.buttonContainer}>
           <button
             type="button"
@@ -52,16 +54,24 @@ const CustomHeader = () => {
           display: isOpen ? "block" : "none",
           opacity: isOpen ? 1 : 0,
           transition: "opacity 0.5s",
+          border: "1px solid white",
+          backgroundColor: "black",
         }}
       >
-        <div className="lists">
-          <ul className="nes-list is-circle">
-            <li>Good morning.</li>
-            <li>Thou hast had a good nights sleep, I hope.</li>
-            <li>Thou hast had a good afternoon</li>
-            <li>Good night.</li>
-          </ul>
-        </div>
+        <ul className="nes-list is-circle">
+          <li>
+            <a href="">Home</a>
+          </li>
+          <li>
+            <a href="">About</a>
+          </li>
+          <li>
+            <a href="">Projects</a>
+          </li>
+          <li>
+            <a href="">Contact</a>
+          </li>
+        </ul>
       </div>
     </AppBar>
   );
