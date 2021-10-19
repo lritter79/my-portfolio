@@ -2,6 +2,7 @@ import React from "react";
 import headerStyles from "../styles/Header.module.sass";
 import { AppBar, Toolbar, Icon, Link } from "@mui/material";
 import { useRef, useState } from "react";
+import RainbowSpans from "./RainbowSpans";
 
 const CustomHeader = () => {
   //const anchorEl = useRef(null);
@@ -28,6 +29,7 @@ const CustomHeader = () => {
       <Toolbar
         sx={{
           padding: 0,
+          backgroundColor: "#212529",
         }}
       >
         <i className="snes-jp-logo"></i>
@@ -38,7 +40,7 @@ const CustomHeader = () => {
           underline="none"
           className={headerStyles.h6}
         >
-          Levon Ritter
+          <RainbowSpans word={"Levon Ritter"} />
         </Link>
 
         <div className={headerStyles.buttonContainer}>

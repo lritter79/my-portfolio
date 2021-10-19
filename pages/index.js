@@ -31,16 +31,10 @@ export default function Home({ mostRecentlyUpdated }) {
           <span className="is-success">Project</span>
         </a>
         <div className="nes-container is-rounded is-dark">
-          <p>{mostRecentlyUpdated.description}</p>
+          <a href={mostRecentlyUpdated.svn_url}>
+            <p>{mostRecentlyUpdated.description}</p>
+          </a>
         </div>
-      </div>
-      <div>
-        <a href="https://github.com/lritter79">
-          <i className="nes-icon github is-large"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/levon-ritter/">
-          <i className="nes-icon linkedin is-large"></i>
-        </a>
       </div>
     </div>
   );
