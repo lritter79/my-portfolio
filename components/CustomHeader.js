@@ -62,20 +62,24 @@ const CustomHeader = () => {
       >
         <ul className="nes-list is-circle">
           <li>
-            <Link href="/">
-              <a>Home</a>
+            <Link className={headerStyles.a} href="/">
+              Home
             </Link>
           </li>
           <li>
-            <Link href="/about">
-              <a>About</a>
+            <Link className={headerStyles.a} href="/about">
+              About
             </Link>
           </li>
           <li>
-            <a href="">Projects</a>
+            <Link className={headerStyles.a} href="/projects">
+              Projects
+            </Link>
           </li>
           <li>
-            <a href="">Contact</a>
+            <Link className={headerStyles.a} href="/contact">
+              Contact
+            </Link>
           </li>
         </ul>
       </div>

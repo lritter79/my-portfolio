@@ -1,3 +1,8 @@
+@mixin link-styles
+    &:visited
+        color: white
+    &:active
+        text-decoration: none
 .button
     margin: 10px
 
@@ -9,7 +14,7 @@
 .h6
     font-family: "Press Start 2P",
     padding-left: 16px
-    &:visited
-        color: white
-    &:active
-        text-decoration: none
+    @include link-styles
+
+.a
+    @include link-styles
