@@ -16,7 +16,13 @@ const RainbowSpans = ({ word }) => {
   return (
     <div>
       {wordArray.map((letter, index) => (
-        <span key={index} style={{ color: colorArr[index % 4] }}>
+        <span
+          key={index}
+          style={{
+            color: colorArr[index % 4],
+            fontFamily: "Press Start 2P, sans-serif",
+          }}
+        >
           {letter}
         </span>
       ))}
