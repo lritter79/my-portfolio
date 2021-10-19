@@ -2,12 +2,20 @@ import React from "react";
 import Footer from "../components/Footer";
 import styles from "../styles/Home.module.sass";
 import CustomHeader from "../components/CustomHeader";
+import Meta from "../components/Meta";
 
 const Layout = ({ children }) => {
   return (
     <div className={styles.container}>
       <CustomHeader />
-      <main>{children}</main>
+      <Meta />
+      <main className={styles.main}>
+        <div
+          className={`nes-container is-dark with-title ${styles.innerContainer}`}
+        >
+          {children}
+        </div>
+      </main>
       <Footer></Footer>
     </div>
   );

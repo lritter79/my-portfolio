@@ -55,7 +55,7 @@ const CustomHeader = () => {
           opacity: isOpen ? 1 : 0,
           transition: "opacity 0.5s",
           border: "1px solid white",
-          backgroundColor: "black",
+          backgroundColor: "#212529",
         }}
       >
         <ul className="nes-list is-circle">
