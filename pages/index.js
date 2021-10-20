@@ -2,6 +2,7 @@ import homeStyles from "../styles/Home.module.sass";
 import { Grid } from "@mui/material";
 import { skills } from "../data/skillsArray";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 export const getStaticProps = async () => {
   const res = await fetch(`https://api.github.com/users/lritter79/repos`);
@@ -17,6 +18,18 @@ export const getStaticProps = async () => {
 };
 
 export default function Home({ mostRecentlyUpdated }) {
+  const [seconds, setSeconds] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      console.log(seconds);
+      if (seconds === 10) setSeconds(0);
+      else setSeconds(seconds + 1);
+    }, 1000);
+    // clearing interval
+    return () => clearInterval(timer);
+  });
+
   console.log(mostRecentlyUpdated);
   return (
     <div className="nes-container is-dark is-centered with-title">
@@ -32,9 +45,9 @@ export default function Home({ mostRecentlyUpdated }) {
         </a>
         <progress
           className="nes-progress is-success"
-          value="50"
+          value={seconds * 10}
           max="100"
-        ></progress>
+        >{`${seconds * 10}%`}</progress>
 
         <div className="nes-container is-rounded is-dark">
           <a href={mostRecentlyUpdated.svn_url}>
