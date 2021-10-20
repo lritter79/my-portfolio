@@ -22,7 +22,7 @@ export default function Home({ mostRecentlyUpdated }) {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      console.log(seconds);
+      //console.log(seconds);
       if (seconds === 10) setSeconds(0);
       else setSeconds(seconds + 1);
     }, 1000);
@@ -30,7 +30,7 @@ export default function Home({ mostRecentlyUpdated }) {
     return () => clearInterval(timer);
   });
 
-  console.log(mostRecentlyUpdated);
+  //console.log(mostRecentlyUpdated);
   return (
     <div className="nes-container is-dark is-centered with-title">
       <p className="title">Hello</p>
