@@ -5,7 +5,8 @@ import { Link } from "@mui/material";
 const projects = () => {
   console.log(portfolioArray);
   return (
-    <div>
+    <div className="nes-container is-dark is-centered with-title">
+      <p className="title">Projects</p>
       <ul className="nes-list is-circle">
         {portfolioArray.map((project, i) => (
           <li style={{ wordBreak: "break-all" }} key={i}>

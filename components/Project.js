@@ -9,6 +9,9 @@ const Project = ({ project }) => {
         <RainbowSpans word={project.name} />
       </a>
       <Typography>{project.description}</Typography>
+      <a title="GitHub" href={project.repoUrl}>
+        <i className="nes-icon github is-large"></i>
+      </a>
     </div>
   );
 };
