@@ -14,7 +14,7 @@ const RainbowSpans = ({ word }) => {
   const wordArray = createCharArray(word);
   console.log(wordArray);
   return (
-    <div>
+    <div style={{ wordBreak: "break-all", fontSize: "1.1rem" }}>
       {wordArray.map((letter, index) => (
         <span
           key={index}

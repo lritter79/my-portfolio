@@ -4,9 +4,9 @@ import Project from "../../components/Project";
 
 const project = ({ project }) => {
   return (
-    <div>
+    <>
       <Project project={project}></Project>
-    </div>
+    </>
   );
 };
 

@@ -30,6 +30,12 @@ export default function Home({ mostRecentlyUpdated }) {
           <span className="is-dark">Current</span>
           <span className="is-success">Project</span>
         </a>
+        <progress
+          className="nes-progress is-success"
+          value="50"
+          max="100"
+        ></progress>
+
         <div className="nes-container is-rounded is-dark">
           <a href={mostRecentlyUpdated.svn_url}>
             <p>{mostRecentlyUpdated.description}</p>

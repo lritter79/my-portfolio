@@ -1,5 +1,6 @@
 import React from "react";
 import RainbowSpans from "./RainbowSpans";
+import { Typography } from "@mui/material";
 
 const Project = ({ project }) => {
   return (
@@ -7,8 +8,7 @@ const Project = ({ project }) => {
       <a href={project.siteUrl ? project.siteUrl : project.repoUrl}>
         <RainbowSpans word={project.name} />
       </a>
-
-      <p>{project.description}</p>
+      <Typography>{project.description}</Typography>
     </div>
   );
 };
