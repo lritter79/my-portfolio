@@ -1,0 +1,114 @@
+.circle {
+  width: 150px;
+  height: 150px;
+  background-color: #d7d7d7;
+  border-radius: 50%;
+}
+
+#leftCircle {
+  position: absolute;
+}
+
+#rightCircle {
+  position: absolute;
+  left: 275px;
+}
+
+#rectangle {
+  position: absolute;
+  background-color: #d7d7d7;
+  left: 75px;
+  height: 125px;
+  width: 275px;
+}
+
+.arrow {
+  background-color: #333333;
+  z-index: 5;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}
+
+#middle-arrow {
+  top: 65px;
+  left: 60px;
+}
+
+#bottom-arrow {
+  top: 85px;
+  left: 60px;
+}
+
+#left-arrow {
+  top: 65px;
+  left: 40px;
+}
+
+#right-arrow {
+  top: 65px;
+  left: 80px;
+}
+
+#top-arrow {
+  top: 45px;
+  left: 60px;
+}
+
+.circle-button {
+  border-radius: 50%;
+  width: 29px;
+  height: 29px;
+  z-index: 5;
+  position: absolute;
+  border: 1px solid #333333;
+}
+.circle-button:hover {
+  width: 28px;
+  height: 28px;
+  border: 2px solid #333333;
+}
+
+#x {
+  background-color: #92cc41;
+  top: 60px;
+  left: 30px;
+}
+
+#y {
+  background-color: #209cee;
+  left: 60px;
+  top: 30px;
+}
+
+#a {
+  background-color: #e76e55;
+  top: 60px;
+  left: 90px;
+}
+
+#b {
+  background-color: #f7d51d;
+  top: 90px;
+  left: 60px;
+}
+
+.pill-button {
+  background-color: #333333;
+  z-index: 5;
+  width: 10px;
+  height: 30px;
+  position: absolute;
+  transform: rotateZ(55deg);
+  top: 70px;
+}
+
+#select {
+  left: 95px;
+}
+
+#start {
+  left: 180px;
+}
+
+/*# sourceMappingURL=output.css.map */
