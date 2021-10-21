@@ -3,6 +3,7 @@ import { Grid } from "@mui/material";
 import { skills } from "../data/skillsArray";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import NesContainer from "../components/NesContainer";
 
 export const getStaticProps = async () => {
   const res = await fetch(`https://api.github.com/users/lritter79/repos`);
@@ -32,8 +33,7 @@ export default function Home({ mostRecentlyUpdated }) {
 
   //console.log(mostRecentlyUpdated);
   return (
-    <div className="nes-container is-dark is-centered with-title">
-      <p className="title">Hello</p>
+    <NesContainer title="Hello">
       <h5>My name is Levon Ritter. I`m a full stack web developer</h5>
       <div>
         <a
@@ -55,6 +55,6 @@ export default function Home({ mostRecentlyUpdated }) {
           </a>
         </div>
       </div>
-    </div>
+    </NesContainer>
   );
 }

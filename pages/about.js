@@ -1,10 +1,10 @@
 import { Typography } from "@mui/material";
 import React from "react";
+import NesContainer from "../components/NesContainer";
 
 const about = () => {
   return (
-    <div className="nes-container is-dark is-centered with-title">
-      <p className="title">About</p>
+    <NesContainer title="About">
       <Typography>
         I learned front-end web design from scratch when I was put in charge of
         editing the website at the non-profit at which I interned. Coding became
@@ -14,7 +14,7 @@ const about = () => {
         I am passionate about using technology to make tools for arts management
         and education organizations.
       </Typography>
-    </div>
+    </NesContainer>
   );
 };
 
