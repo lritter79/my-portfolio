@@ -50,7 +50,7 @@ export default function Home() {
       //console.log(seconds);
       if (seconds === 10) setSeconds(0);
       else setSeconds(seconds + 1);
-    }, 1000);
+    }, 500);
     // clearing interval
     return () => clearInterval(timer);
   });
@@ -60,28 +60,26 @@ export default function Home() {
     <NesContainer title="Hello">
       <h5>My name is Levon Ritter. I`m a full stack web developer</h5>
       <div>
+        <div className={`nes-badge is-splited ${homeStyles.nesBadge}`}>
+          <span className="is-dark">Current</span>
+          <span className="is-success">Project</span>
+        </div>
         {(!data || error) && (
-          <progress
-            className="nes-progress is-success"
-            value={seconds * 10}
-            max="100"
-          >{`${seconds * 10}%`}</progress>
+          <>
+            <p>Now Loading ...</p>
+            <progress
+              className="nes-progress is-success"
+              value={seconds * 20}
+              max="100"
+            >{`${seconds * 20}%`}</progress>
+          </>
         )}
         {data && (
-          <>
-            <a
-              href={data.svn_url}
-              className={`nes-badge is-splited ${homeStyles.nesBadge}`}
-            >
-              <span className="is-dark">Current</span>
-              <span className="is-success">Project</span>
+          <div className="nes-container is-rounded is-dark">
+            <a href={data.svn_url}>
+              <p>{data.description}</p>
             </a>
-            <div className="nes-container is-rounded is-dark">
-              <a href={data.svn_url}>
-                <p>{data.description}</p>
-              </a>
-            </div>
-          </>
+          </div>
         )}
       </div>
     </NesContainer>
