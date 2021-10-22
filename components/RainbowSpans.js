@@ -9,7 +9,7 @@ const RainbowSpans = ({ word }) => {
 
   useEffect(() => {
     console.log("rendering");
-    const timer = setInterval(incrementColorIndex, 500);
+    const timer = setInterval(incrementColorIndex, 250);
     // clearing interval
     return () => clearInterval(timer);
   });
