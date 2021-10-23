@@ -1,10 +1,10 @@
 import homeStyles from "../styles/Home.module.sass";
-import { Grid } from "@mui/material";
-import { skills } from "../data/skillsArray";
-import Image from "next/image";
+import { skillsArray } from "../data/technicalSkillsArray";
 import { useState, useEffect } from "react";
 import NesContainer from "../components/NesContainer";
 import useSWR from "swr";
+import { colorByClassArr } from "../data/colorArray";
+import Skills from "../components/Skills";
 
 //this is what fetches the most repo I've been woring on, but it's static, so it's based on the last time the portfolio was commited
 //so I'm commenting this out to switch to dynamically loading the most recent project
@@ -24,7 +24,6 @@ import useSWR from "swr";
 export default function Home() {
   const [seconds, setSeconds] = useState(0);
   const repoUrl = `https://api.github.com/users/lritter79/repos`;
-
   const sleep = (milliseconds) => {
     return new Promise((resolve) => setTimeout(resolve, milliseconds));
   };
@@ -55,6 +54,10 @@ export default function Home() {
     return () => clearInterval(timer);
   });
 
+  useEffect(() => {
+    console.log(skillsArray);
+  }, []);
+
   //console.log(mostRecentlyUpdated);
   return (
     <NesContainer title="Hello">
@@ -82,6 +85,7 @@ export default function Home() {
           </div>
         )}
       </div>
+      <Skills />
     </NesContainer>
   );
 }

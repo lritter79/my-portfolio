@@ -1,0 +1,185 @@
+/*
+ variables/reusable component
+ */
+$nes-light-gray: #d7d7d7
+$nes-grey: #575d61
+$nes-dark-gray: #333333
+$nes-blue: #209cee
+$nes-green: #92cc41
+$nes-red: #e76e55
+$nes-yellow: #f7d51d
+$nes-letter-color: #a3a8ae
+@mixin snes-text()
+    font-size: 12px
+    font-family: sans-serif
+    position: absolute
+
+/*
+ General Outlne of Controller
+ */
+
+.circle
+    width: 150px
+    height: 150px
+    background-color: $nes-light-gray
+    border-radius: 50%
+#leftCircle
+    position: absolute
+
+#rightCircle
+    position: absolute
+    left: 275px
+#rectangle
+    position: absolute
+    background-color: $nes-light-gray
+    left: 75px
+    height: 125px
+    width: 275px
+
+/*
+ Left side of the controller with arrows
+ */
+
+#arrow-container
+    border-radius: 50%
+    height: 90px
+    width: 90px
+    top: 30px
+    left: 30px
+    position: absolute
+    z-index: 5
+    box-shadow: 1px 1px 1px grey inset, -1px -1px 1px grey inset, -1px 1px 1px grey inset, 1px -1px 1px grey inset
+
+.arrow
+    background-color: $nes-grey
+    z-index: 5
+
+    position: absolute
+
+@mixin arrow-border($top, $bottom, $left, $right, $width, $heigth, $top-position, $left-position)
+    width: #{$width}px
+    height: #{$heigth}px
+    border-top: #{$top}px solid black
+    border-bottom: #{$bottom}px solid black
+    border-left: #{$left}px solid black
+    border-right: #{$right}px solid black
+    top: #{$top-position}px
+    left: #{$left-position}px
+@mixin arrow-shadow($top, $bottom, $left, $right, $width, $heigth)
+    width: #{$width}px
+    height: #{$heigth}px
+    border-top: #{$top}px solid black
+    border-bottom: #{$bottom}px solid black
+    border-left: #{$left}px solid black
+    border-right: #{$right}px solid black
+
+#middle-arrow
+    @include arrow-border($top: 0, $bottom: 0, $left: 0, $right: 0, $width: 25, $heigth: 18, $top-position: 66, $left-position: 61)
+    z-index: 6
+#bottom-arrow
+    @include arrow-border($top: 0, $bottom: 3, $left: 3, $right: 3, $width: 18, $heigth: 20, $top-position: 84, $left-position: 63)
+
+#left-arrow
+
+    @include arrow-border($top: 3, $bottom: 3, $left: 3, $right: 0, $width: 18, $heigth: 18, $top-position: 63, $left-position: 44)
+
+#right-arrow
+    @include arrow-border($top: 3, $bottom: 3, $left: 0, $right: 3, $width: 18, $heigth: 18, $top-position: 63, $left-position: 85)
+
+#top-arrow
+    @include arrow-border($top: 3, $bottom: 0, $left: 3, $right: 3, $width: 18, $heigth: 20, $top-position: 44, $left-position: 63)
+
+/*
+ right side of the controller with circle buttons
+ */
+.circle-button
+    border-radius: 50%
+    width: 29px
+    height: 29px
+    z-index: 5
+    position: absolute
+    box-shadow: 2px 2px 2px $nes-dark-gray
+    &:hover
+        transform: translate(2px, 2px)
+        box-shadow: -2px -2px 2px $nes-dark-gray
+
+#x
+    background-color: $nes-green
+    top: 60px
+    left: 30px
+#y
+    background-color: $nes-blue
+    left: 60px
+    top: 30px
+#a
+    background-color: $nes-red
+    top: 60px
+    left: 90px
+#b
+    background-color: $nes-yellow
+    top: 90px
+    left: 60px
+
+#button-container
+    position: absolute
+    height: 130px
+    width: 130px
+    background-color: gray
+    border-radius: 50%
+    top: 10px
+    left: 10px
+
+.button-letter
+    @include snes-text()
+    color: $nes-light-gray
+
+#letter-x
+    top: 5px
+    left: 90px
+
+#letter-y
+    top: 75px
+    left: 20px
+#letter-a
+    top: 35px
+    left: 120px
+#letter-b
+    top: 105px
+    left: 50px
+    /*
+     middle two buttons
+     */
+.pill-button
+    background-color: $nes-grey
+    z-index: 5
+    width: 9px
+    height: 30px
+    border: 2px outset black
+    position: absolute
+    transform: rotateZ(55deg)
+    top: 65px
+    border-radius: 48%
+    &:hover
+        width: 7px
+        height: 28px
+        border: 3px inset black
+        cursor: pointer
+
+#select
+    left: 100px
+#start
+    left: 170px
+
+.pill-text
+    @include snes-text()
+    font-style: italic
+    font-size: 12px
+    top: 85px
+
+    color: $nes-grey
+
+#select-text
+    left: 80px
+
+#start-text
+    left: 155px
