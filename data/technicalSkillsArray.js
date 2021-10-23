@@ -11,12 +11,11 @@ export const skillsArray = [
       "Bootstrap",
       "Material UI",
       "React Spring Animations",
-      "Next.js",
     ],
   },
   {
     title: "Web Application Frameworks",
-    skills: ["ASP.NET Webforms", "ASP.NET MVC", ".NET CORE API"],
+    skills: ["ASP.NET Webforms", "ASP.NET MVC", ".NET CORE API", "Next.js"],
   },
   {
     title: "Databases",
