@@ -31,7 +31,7 @@ export const skillsArray = [
       "Git",
       "Microsoft TFS",
       "Microsoft VS",
-      "Deploying wit Netlify and Vercel",
+      "Deploying with Netlify and Vercel",
     ],
   },
 ];
