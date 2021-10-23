@@ -32,8 +32,9 @@ const CustomHeader = () => {
           backgroundColor: "#212529",
         }}
       >
-        <i className="snes-jp-logo"></i>
-
+        <a href="https://codepen.io/lritterPen/pen/zYdoyQd">
+          <i className="snes-jp-logo"></i>
+        </a>
         <Link
           variant="h6"
           href="/"
