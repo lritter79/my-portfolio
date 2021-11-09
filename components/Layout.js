@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import styles from "../styles/Home.module.sass";
 import CustomHeader from "../components/CustomHeader";
 import Meta from "../components/Meta";
+import Starfield from "./StarComponents/Starfield";
 
 const Layout = ({ children }) => {
   return (
@@ -14,6 +15,7 @@ const Layout = ({ children }) => {
           className={`nes-container is-dark with-title ${styles.innerContainer}`}
         >
           {children}
+          <Starfield />
         </div>
       </main>
       <Footer></Footer>

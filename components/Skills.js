@@ -12,9 +12,6 @@ const Skills = () => {
       </div>
 
       {skillsArray.map((skill, index) => {
-        {
-          console.log(skill);
-        }
         return (
           <div key={index}>
             <div className={skillsStyles.nesBadge}>
