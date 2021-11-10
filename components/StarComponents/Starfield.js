@@ -1,13 +1,17 @@
 import React from "react";
 import EightBitStar from "./EightBitStar";
 import { colorArr } from "../../data/colorArray";
+import { useTrail, animated } from "react-spring";
+
 const Starfield = () => {
+  const trailSprings = useTrail(colorArr.length, {});
+
   return (
-    <>
-      {colorArr.map((color, i) => {
-        return <EightBitStar bgColor={color} leftvw={i * 25} key={i} />;
+    <div>
+      {trailSprings.map((spring, i) => {
+        return <EightBitStar bgColor={colorArr[i]} key={i} delay={i} />;
       })}
-    </>
+    </div>
   );
 };
 

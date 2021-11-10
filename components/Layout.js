@@ -15,10 +15,10 @@ const Layout = ({ children }) => {
           className={`nes-container is-dark with-title ${styles.innerContainer}`}
         >
           {children}
-          <Starfield />
         </div>
       </main>
       <Footer></Footer>
+      <Starfield />
     </div>
   );
 };
