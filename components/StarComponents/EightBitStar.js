@@ -21,10 +21,9 @@ const EightBitStar = ({ bgColor, delay }) => {
     delay: hasCompleted.current ? 0 : delay * Math.random() * 10000,
     config: { duration: 10000 },
     to: async (next, cancel) => {
-      await next({ top: "0%", opacity: 1 });
-      await setLeftvw(Math.random() * 97);
+      await next({ top: "-10%", opacity: 1 });
     },
-    from: { top: "100%", opacity: 0 },
+    from: { top: "100%", opacity: 0, left: `${Math.random() * 97}vw` },
   });
   const flickerStyles = useSpring({
     loop: { reverse: true },
@@ -40,7 +39,6 @@ const EightBitStar = ({ bgColor, delay }) => {
       className={starStyles.star}
       style={{
         backgroundColor: bgColor,
-        left: `${leftvw}vw`,
         ...flickerStyles,
         ...animationStyles,
       }}

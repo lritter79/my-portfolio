@@ -8,14 +8,14 @@ const RainbowSpans = ({ word }) => {
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
-    console.log("rendering");
+    //console.log("rendering");
     const timer = setInterval(incrementColorIndex, 250);
     // clearing interval
     return () => clearInterval(timer);
   });
 
   function incrementColorIndex() {
-    console.log(colorIndex);
+    //console.log(colorIndex);
     if (isHovering) {
       setColorIndex((prev) => (prev === 3 ? 0 : prev + 1));
     }
