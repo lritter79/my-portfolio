@@ -16,9 +16,9 @@ const Layout = ({ children }) => {
         >
           {children}
         </div>
+        <Starfield />
       </main>
       <Footer></Footer>
-      <Starfield />
     </div>
   );
 };

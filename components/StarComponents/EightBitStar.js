@@ -14,15 +14,17 @@ const EightBitStar = ({ bgColor, delay }) => {
   // });
   const animationStyles = useSpring({
     onStart: () => {
-      setLeftvw(Math.random() * 97);
       hasCompleted.current = true;
     },
     loop: true,
     reset: true,
     delay: hasCompleted.current ? 0 : delay * Math.random() * 10000,
     config: { duration: 10000 },
-    to: { top: "0%" },
-    from: { top: "100%" },
+    to: async (next, cancel) => {
+      await next({ top: "0%", opacity: 1 });
+      await setLeftvw(Math.random() * 97);
+    },
+    from: { top: "100%", opacity: 0 },
   });
   const flickerStyles = useSpring({
     loop: { reverse: true },

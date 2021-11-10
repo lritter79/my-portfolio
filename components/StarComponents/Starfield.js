@@ -7,11 +7,11 @@ const Starfield = () => {
   const trailSprings = useTrail(colorArr.length, {});
 
   return (
-    <div>
+    <>
       {trailSprings.map((spring, i) => {
         return <EightBitStar bgColor={colorArr[i]} key={i} delay={i} />;
       })}
-    </div>
+    </>
   );
 };
 
