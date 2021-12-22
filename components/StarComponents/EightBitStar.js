@@ -30,7 +30,7 @@ const EightBitStar = ({ star }) => {
   //   return () => clearInterval(timer);
   // });
   const animationStyles = useSpring({
-    onStart: () =>{ console.log('start') },
+    //onStart: () =>{ console.log('start') },
     loop: true,
     reset: true,
     config: { duration: 10000 },
@@ -52,17 +52,17 @@ const EightBitStar = ({ star }) => {
     console.log('sleep')
   });
 
-  const flickerStyles = star.isFlashing ? useSpring({
+  const flickerStyles = useSpring({
     loop: true,
     reset: false,
     delay: flickerRate,
     to: async (next, cancel) => {
       await sleep(flickerRate)
-      await next({ opacity: 0 })
+      await next({ opacity: star.isFlashing ? 0 : 1 })
       await sleep(flickerRate)
     },
     from: { opacity: 1 },
-  }) : {}
+  })
 
   return (
     <animated.div
