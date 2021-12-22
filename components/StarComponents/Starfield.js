@@ -9,8 +9,8 @@ const Starfield = () => {
 
   function createStarArray() {
     let starArr = [];
-    for (let i = 1; i < 20; i++) {
-      const star = {color: 'green', xPosition: (i * 5), yPosition:(Math.random() * 100), isFlashing:((Math.random()) * 2 == 1)}
+    for (let i = 1; i < 25; i++) {
+      const star = {color: `rgb(${(Math.random() * 255)},${(Math.random() * 255)},${(Math.random() * 255)})`, xPosition: (i * 4), yPosition:(Math.random() * 100), isFlashing:(Math.floor((Math.random() * 2)) == 1)}
       starArr.push(star);
     }
 
@@ -22,7 +22,7 @@ const Starfield = () => {
   return (
     <>
       {starArray.map((star, i) => {
-        return <EightBitStar bgColor={star.color} key={i} delay={i} />;
+        return <EightBitStar star={star} key={i} />;
       })}
     </>
   );

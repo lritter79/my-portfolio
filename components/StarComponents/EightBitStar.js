@@ -1,10 +1,28 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import starStyles from "../../styles/EightBitStar.module.sass";
 import { useSpring, animated } from "react-spring";
 
-const EightBitStar = ({ bgColor, delay }) => {
-  const [leftvw, setLeftvw] = useState(Math.random() * 97);
+const EightBitStar = ({ star }) => {
+  const [leftvw, setLeftvw] = useState(star.xPosition);
   const hasCompleted = useRef(false);
+  const [flickerRate, setFlickerRate] = useState(Math.random() * 500)
+/*   const [showStar, setShowStar] = useState(true)
+  useEffect(() => {
+    console.log("rendering");
+    const timer = setInterval(flicker, 990);
+    // clearing interval
+    return () => clearInterval(timer);
+  }); */
+
+/*   function flicker() {
+    console.log("flicker");
+
+    if (star.isFlashing) {
+      console.log("toggle flicker");
+
+      setShowStar(!showStar)
+    }
+  } */
   // useEffect(() => {
   //   //console.log("rendering");
   //   const timer = setInterval(() => setLeftvw(Math.random() * 97), 10000);
@@ -12,33 +30,48 @@ const EightBitStar = ({ bgColor, delay }) => {
   //   return () => clearInterval(timer);
   // });
   const animationStyles = useSpring({
-    onStart: () => {
-      hasCompleted.current = true;
-    },
+    onStart: () =>{ console.log('start') },
     loop: true,
     reset: true,
-    delay: hasCompleted.current ? 0 : delay * Math.random() * 10000,
     config: { duration: 10000 },
+    delay: Math.random() * 10000,
     to: async (next, cancel) => {
-      await next({ top: "0%" });
+      await next({ top: "110%" });
     },
-    from: { top: "100%", left: `${Math.random() * 97}vw` },
+    from: { top: "-10%"},
   });
-  const flickerStyles = useSpring({
-    loop: { reverse: true },
-    reset: true,
+  
+/*   const flickerStyles = useSpring({
+    
     config: { duration: 1000 },
-    to: { filter: "blur(2px)" },
-    from: { filter: "blur(1px)" },
+    to: { opacity: 0 },
+    from: { opacity: 1 },
+  }); */
+  const sleep = ms => new Promise(res => {
+    setTimeout(res, ms)
+    console.log('sleep')
   });
+
+  const flickerStyles = star.isFlashing ? useSpring({
+    loop: true,
+    reset: false,
+    delay: flickerRate,
+    to: async (next, cancel) => {
+      await sleep(flickerRate)
+      await next({ opacity: 0 })
+      await sleep(flickerRate)
+    },
+    from: { opacity: 1 },
+  }) : {}
 
   return (
     <animated.div
       className={starStyles.star}
       style={{
-        backgroundColor: bgColor,
-        ...flickerStyles,
+        backgroundColor: star.color,
+        left: `${star.xPosition}%`,
         ...animationStyles,
+        ...flickerStyles
       }}
     ></animated.div>
   );
