@@ -3,8 +3,6 @@ import starStyles from "../../styles/EightBitStar.module.sass";
 import { useSpring, animated } from "react-spring";
 
 const EightBitStar = ({ star }) => {
-  const [leftvw, setLeftvw] = useState(star.xPosition);
-  const hasCompleted = useRef(false);
   const [flickerRate, setFlickerRate] = useState(Math.random() * 500)
 /*   const [showStar, setShowStar] = useState(true)
   useEffect(() => {
