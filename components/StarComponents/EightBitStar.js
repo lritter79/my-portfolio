@@ -47,7 +47,6 @@ const EightBitStar = ({ star }) => {
   }); */
   const sleep = ms => new Promise(res => {
     setTimeout(res, ms)
-    console.log('sleep')
   });
 
   const flickerStyles = useSpring({

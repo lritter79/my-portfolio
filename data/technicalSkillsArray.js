@@ -1,12 +1,12 @@
 export const skillsArray = [
-  { title: "Programming Languages", skills: ["C#", "VB.NET", "JS"] },
+  { title: "Programming Languages", skills: ["C#", "VB.NET", "JS", "Solidity"] },
   {
     title: "Front End",
     skills: [
       "SASS",
       "CSS",
       "JQuery",
-      "Angular",
+      "Angular 2 and up",
       "React",
       "Bootstrap",
       "Material UI",

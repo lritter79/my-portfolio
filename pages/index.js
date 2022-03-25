@@ -35,10 +35,12 @@ export default function Home() {
     const repos = await res.json();
     console.log(repos);
     //const test = await setTimeout(5000, () => console.log(repos));
-    let sortedRepos = repos.sort(
-      (a, b) => new Date(a.pushed_at) - new Date(b.pushed_at)
-    );
-    console.log(sortedRepos[sortedRepos.length - 1]);
+    let sortedRepos = repos
+          .filter(repo => repo?.description)
+          .sort(
+            (a, b) => new Date(a.pushed_at) - new Date(b.pushed_at)
+          );
+    //console.log(sortedRepos[sortedRepos.length - 1]);
 
     return sortedRepos.length > 0 ? sortedRepos[sortedRepos.length - 1] : null;
   }
@@ -55,7 +57,7 @@ export default function Home() {
   });
 
   useEffect(() => {
-    console.log(skillsArray);
+    //console.log(skillsArray);
   }, []);
 
   //console.log(mostRecentlyUpdated);
