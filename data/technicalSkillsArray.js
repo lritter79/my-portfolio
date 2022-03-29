@@ -1,5 +1,5 @@
 export const skillsArray = [
-  { title: "Programming Languages", skills: ["C#", "Solidity","VB.NET", "JS", "Solidity"] },
+  { title: "Programming Languages", skills: ["C#","VB.NET", "JS", "Solidity"] },
   {
     title: "Front End",
     skills: [
