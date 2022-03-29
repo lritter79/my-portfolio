@@ -32,8 +32,12 @@ export const skillsArray = [
       "Microsoft TFS",
       "Microsoft VS",
       "Deploying Web Apps With Netlify And Vercel",
-      "Truffle",
-      "Ganache"
+      
     ],
+    title: "Blockchain Tooling",
+    skills: [
+      "Truffle",
+      "Ganache",
+    ]
   },
 ];
