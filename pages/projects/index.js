@@ -18,7 +18,7 @@ const projects = () => {
       </ul>
       */}
       {portfolioArray.map((project, i) => (
-          <Project project={project} index={i}></Project>
+          <Project project={project} key={project.id} index={i}></Project>
         ))}
       
     </NesContainer>
