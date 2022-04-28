@@ -31,4 +31,11 @@ export const portfolioArray = [
     name: "YouShouldCheckOutThisBand.com",
     siteUrl: null,
   },
+  {
+    id: 4,
+    description:"A Web3 dApp written in React with the web3js and ethers js libraries, as well as solidity for the smart contract and truffle and ganache for testing. I used Ant Design for the UI components. The concept of this app is being able to store contractor's warranties on the blockchain. In this proof of concept, you can deploy a smart warranty and interact with it.",
+    repoUrl: "https://github.com/lritter79/contractor_keeper",
+    name: "ContractorKeeper.com",
+    siteUrl: "https://626a71ea4c447827d6ad9064--incandescent-melba-44196e.netlify.app/",
+  },
 ];

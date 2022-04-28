@@ -11,6 +11,7 @@ export const skillsArray = [
       "Bootstrap",
       "Material UI",
       "React Spring Animations",
+      "Ant Design"
     ],
   },
   {
