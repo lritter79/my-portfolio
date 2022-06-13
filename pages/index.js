@@ -22,7 +22,7 @@ import Skills from "../components/Skills";
 // };
 
 export default function Home() {
-  const [seconds, setSeconds] = useState(0);
+  consst [seconds, setSeconds] = useState(0);
   const repoUrl = `https://api.github.com/users/lritter79/repos`;
   const sleep = (milliseconds) => {
     return new Promise((resolve) => setTimeout(resolve, milliseconds));
@@ -31,9 +31,9 @@ export default function Home() {
   async function FetchMostRecent(url) {
     await sleep(3000);
     const res = await fetch(url);
-    console.log(res);
+    //console.log(res);
     const repos = await res.json();
-    console.log(repos);
+    //console.log(repos);
     //const test = await setTimeout(5000, () => console.log(repos));
     let sortedRepos = repos
           .filter(repo => repo?.description)
