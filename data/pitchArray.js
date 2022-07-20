@@ -1,1 +1,0 @@
-export const pitchArray = [220, 277, 329, 277]

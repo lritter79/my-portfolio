@@ -3,7 +3,7 @@ import headerStyles from "../styles/Header.module.sass";
 import { AppBar, Toolbar, Icon, Link } from "@mui/material";
 import { useRef, useState } from "react";
 import RainbowSpans from "./RainbowSpans";
-import { pitchArray } from "../data/pitchArray";
+import { birdUpPitchArray } from "../data/birdUpPitchArray";
 
 const CustomHeader = () => {
   //const anchorEl = useRef(null);
@@ -26,28 +26,44 @@ const CustomHeader = () => {
     setIsOpen(!isOpen);
   };
 
+  const oscillatorFactory = (audioContext, frequency, gain) => {
+    const oscillator = audioContext.createOscillator();
+    oscillator.type = 'sawtooth';
+    oscillator.connect(gain);
+    oscillator.frequency.value = frequency;
+    return oscillator;
+
+  }
+
   const handleClick = () => {
     const audio = new (window.AudioContext || window.webkitAudioContext)()
     const gainNode = audio.createGain()
     gainNode.gain.value = 0.05
     gainNode.connect(audio.destination)
-    const oscillatorNode = audio.createOscillator()
-    oscillatorNode.type = 'sawtooth'
-    oscillatorNode.connect(gainNode)
-    oscillatorNode.frequency.value = pitchArray[pitchIndex];
-    oscillatorNode.start();
+    let oscillatorRoot = oscillatorFactory(audio, birdUpPitchArray[pitchIndex][0], gainNode);
+    let oscillatorFour = oscillatorFactory(audio, birdUpPitchArray[pitchIndex][1], gainNode);
+    let oscillatorFive = oscillatorFactory(audio, birdUpPitchArray[pitchIndex][2], gainNode);
+    oscillatorRoot.start();
+    oscillatorFour.start();
+    oscillatorFive.start();
     const timer = setInterval(() => {
-      oscillatorNode.frequency.value = pitchArray[pitchIndex];
+      if (pitchIndex == 2) pitchIndex = pitchIndex -3;
+      if (pitchIndex < 2) pitchIndex = pitchIndex + 1;
+      oscillatorRoot.frequency.value = birdUpPitchArray[pitchIndex][0];
+      oscillatorFour.frequency.value = birdUpPitchArray[pitchIndex][1];
+      oscillatorFive.frequency.value = birdUpPitchArray[pitchIndex][2];
+
       console.log(pitchIndex);
-      if (pitchIndex == 3) pitchIndex = pitchIndex -4;
-      if (pitchIndex < 3) pitchIndex = pitchIndex + 1;
-    }, 125);
+      
+    }, 250);
     // clearing interval
     setTimeout(() => {
       clearInterval(timer);
-      oscillatorNode.stop();
+      oscillatorRoot.stop();
+      oscillatorFour.stop();
+      oscillatorFive.stop();
       pitchIndex = 0;
-    }, 1000);
+    }, 750);
 }
 
   return (
