@@ -46,24 +46,26 @@ const CustomHeader = () => {
     let oscillatorRoot = oscillatorFactory(audio, birdUpPitchArray[pitchIndex][0], gainNode);
     let oscillatorFour = oscillatorFactory(audio, birdUpPitchArray[pitchIndex][1], gainNode);
     let oscillatorFive = oscillatorFactory(audio, birdUpPitchArray[pitchIndex][2], gainNode);
+    let oscillatorSub = oscillatorFactory(audio, birdUpPitchArray[pitchIndex][3], gainNode);
+
     oscillatorRoot.start();
     oscillatorFour.start();
     oscillatorFive.start();
+    oscillatorSub.start();
+
     const timer = setInterval(() => {
       if (!isOpen) {
         pitchIndex = pitchIndex + 1
-        oscillatorRoot.frequency.value = birdUpPitchArray[pitchIndex][0];
-        oscillatorFour.frequency.value = birdUpPitchArray[pitchIndex][1];
-        oscillatorFive.frequency.value = birdUpPitchArray[pitchIndex][2];
-
       } else {
         pitchIndex = pitchIndex - 1
-        oscillatorRoot.frequency.value = birdUpPitchArray[pitchIndex][0];
-        oscillatorFour.frequency.value = birdUpPitchArray[pitchIndex][1];
-        oscillatorFive.frequency.value = birdUpPitchArray[pitchIndex][2];
       }
+
+      oscillatorRoot.frequency.value = birdUpPitchArray[pitchIndex][0];
+      oscillatorFour.frequency.value = birdUpPitchArray[pitchIndex][1];
+      oscillatorFive.frequency.value = birdUpPitchArray[pitchIndex][2];
+      oscillatorSub.frequency.value = birdUpPitchArray[pitchIndex][3];
       
-      console.log(pitchIndex);
+      //console.log(pitchIndex);
       
     }, 250);
     // clearing interval
@@ -72,6 +74,7 @@ const CustomHeader = () => {
       oscillatorRoot.stop();
       oscillatorFour.stop();
       oscillatorFive.stop();
+      oscillatorSub.stop();
       //off by 1 millisecond in order to not trigger the set interval a fourth time and get an out of index error
     }, 749);
 }
