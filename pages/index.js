@@ -22,7 +22,7 @@ import Skills from "../components/Skills";
 // };
 
 export default function Home() {
-  consst [seconds, setSeconds] = useState(0);
+  const [seconds, setSeconds] = useState(0);
   const repoUrl = `https://api.github.com/users/lritter79/repos`;
   const sleep = (milliseconds) => {
     return new Promise((resolve) => setTimeout(resolve, milliseconds));
@@ -51,6 +51,7 @@ export default function Home() {
       //console.log(seconds);
       if (seconds === 10) setSeconds(0);
       else setSeconds(seconds + 1);
+      
     }, 500);
     // clearing interval
     return () => clearInterval(timer);

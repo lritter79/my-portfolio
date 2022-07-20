@@ -3,10 +3,12 @@ import headerStyles from "../styles/Header.module.sass";
 import { AppBar, Toolbar, Icon, Link } from "@mui/material";
 import { useRef, useState } from "react";
 import RainbowSpans from "./RainbowSpans";
+import { pitchArray } from "../data/pitchArray";
 
 const CustomHeader = () => {
   //const anchorEl = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
+  let pitchIndex = 0;
   //const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleChange = (event) => {
@@ -23,6 +25,31 @@ const CustomHeader = () => {
   const toggleOpen = (e) => {
     setIsOpen(!isOpen);
   };
+
+  const handleClick = () => {
+    const audio = new (window.AudioContext || window.webkitAudioContext)()
+    const gainNode = audio.createGain()
+    gainNode.gain.value = 0.05
+    gainNode.connect(audio.destination)
+    const oscillatorNode = audio.createOscillator()
+    oscillatorNode.type = 'sawtooth'
+    oscillatorNode.connect(gainNode)
+    oscillatorNode.frequency.value = pitchArray[pitchIndex];
+    oscillatorNode.start();
+    const timer = setInterval(() => {
+      oscillatorNode.frequency.value = pitchArray[pitchIndex];
+      console.log(pitchIndex);
+      if (pitchIndex == 3) pitchIndex = pitchIndex -4;
+      if (pitchIndex < 3) pitchIndex = pitchIndex + 1;
+    }, 125);
+    // clearing interval
+    setTimeout(() => {
+      clearInterval(timer);
+      oscillatorNode.stop();
+      pitchIndex = 0;
+    }, 1000);
+}
+
   return (
     // eslint-disable-next-line react/jsx-no-undef
     <AppBar position="static">
@@ -32,7 +59,7 @@ const CustomHeader = () => {
           backgroundColor: "#212529",
         }}
       >
-        <a href="https://codepen.io/lritterPen/pen/zYdoyQd">
+        <a onClick={handleClick} href="https://codepen.io/lritterPen/pen/zYdoyQd">
           <i className="snes-jp-logo"></i>
         </a>
         <Link
