@@ -8,7 +8,6 @@ import { birdUpPitchArray } from "../data/birdUpPitchArray";
 const CustomHeader = () => {
   //const anchorEl = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
-  let pitchIndex = 0;
   //const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleChange = (event) => {
@@ -21,8 +20,10 @@ const CustomHeader = () => {
 
   const handleClose = () => {
     setAnchorEl(null);
+    handleClick()
   };
   const toggleOpen = (e) => {
+    handleClick()
     setIsOpen(!isOpen);
   };
 
@@ -36,6 +37,8 @@ const CustomHeader = () => {
   }
 
   const handleClick = () => {
+    let pitchIndex = isOpen ? 2 : 0;
+    console.log(pitchIndex);
     const audio = new (window.AudioContext || window.webkitAudioContext)()
     const gainNode = audio.createGain()
     gainNode.gain.value = 0.05
@@ -47,12 +50,19 @@ const CustomHeader = () => {
     oscillatorFour.start();
     oscillatorFive.start();
     const timer = setInterval(() => {
-      if (pitchIndex == 2) pitchIndex = pitchIndex -3;
-      if (pitchIndex < 2) pitchIndex = pitchIndex + 1;
-      oscillatorRoot.frequency.value = birdUpPitchArray[pitchIndex][0];
-      oscillatorFour.frequency.value = birdUpPitchArray[pitchIndex][1];
-      oscillatorFive.frequency.value = birdUpPitchArray[pitchIndex][2];
+      if (!isOpen) {
+        pitchIndex = pitchIndex + 1
+        oscillatorRoot.frequency.value = birdUpPitchArray[pitchIndex][0];
+        oscillatorFour.frequency.value = birdUpPitchArray[pitchIndex][1];
+        oscillatorFive.frequency.value = birdUpPitchArray[pitchIndex][2];
 
+      } else {
+        pitchIndex = pitchIndex - 1
+        oscillatorRoot.frequency.value = birdUpPitchArray[pitchIndex][0];
+        oscillatorFour.frequency.value = birdUpPitchArray[pitchIndex][1];
+        oscillatorFive.frequency.value = birdUpPitchArray[pitchIndex][2];
+      }
+      
       console.log(pitchIndex);
       
     }, 250);
@@ -62,8 +72,8 @@ const CustomHeader = () => {
       oscillatorRoot.stop();
       oscillatorFour.stop();
       oscillatorFive.stop();
-      pitchIndex = 0;
-    }, 750);
+      //off by 1 millisecond in order to not trigger the set interval a fourth time and get an out of index error
+    }, 749);
 }
 
   return (
@@ -75,7 +85,7 @@ const CustomHeader = () => {
           backgroundColor: "#212529",
         }}
       >
-        <a onClick={handleClick} href="https://codepen.io/lritterPen/pen/zYdoyQd">
+        <a href="https://codepen.io/lritterPen/pen/zYdoyQd">
           <i className="snes-jp-logo"></i>
         </a>
         <Link
