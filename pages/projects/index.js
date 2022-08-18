@@ -5,7 +5,6 @@ import NesContainer from "../../components/NesContainer";
 import Project from "../../components/Project";
 
 const projects = () => {
-  console.log(portfolioArray);
   return (
     <NesContainer title="Projects">
       {/*
@@ -25,4 +24,4 @@ const projects = () => {
   );
 };
 
-export default projects;
+export default React.memo(projects);
