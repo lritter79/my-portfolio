@@ -5,6 +5,7 @@ import NesContainer from "../components/NesContainer";
 import useSWR from "swr";
 import { colorByClassArr } from "../data/colorArray";
 import Skills from "../components/Skills";
+import CustomProgressBar from "../components/CustomProgressBar/CustomProgressBar";
 
 //this is what fetches the most repo I've been woring on, but it's static, so it's based on the last time the portfolio was commited
 //so I'm commenting this out to switch to dynamically loading the most recent project
@@ -22,7 +23,6 @@ import Skills from "../components/Skills";
 // };
 
 export default function Home() {
-  const [seconds, setSeconds] = useState(0);
   const repoUrl = `https://api.github.com/users/lritter79/repos`;
   const sleep = (milliseconds) => {
     return new Promise((resolve) => setTimeout(resolve, milliseconds));
@@ -46,20 +46,6 @@ export default function Home() {
   }
   const { data, error } = useSWR(repoUrl, FetchMostRecent, 3);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      //console.log(seconds);
-      if (seconds === 10) setSeconds(0);
-      else setSeconds(seconds + 1);
-      
-    }, 500);
-    // clearing interval
-    return () => clearInterval(timer);
-  });
-
-  useEffect(() => {
-    //console.log(skillsArray);
-  }, []);
 
   //console.log(mostRecentlyUpdated);
   return (
@@ -70,16 +56,13 @@ export default function Home() {
           <span className="is-dark">Current</span>
           <span className="is-success">Project</span>
         </div>
-        {(!data || error) && (
+        {//(!data || error) && (
           <>
             <p>Now Loading ...</p>
-            <progress
-              className="nes-progress is-success"
-              value={seconds * 20}
-              max="100"
-            >{`${seconds * 20}%`}</progress>
+            <CustomProgressBar />
           </>
-        )}
+        //)
+      }
         {data && (
           <div className="nes-container is-rounded is-dark">
             <a href={data.svn_url}>
