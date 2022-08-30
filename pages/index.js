@@ -56,13 +56,12 @@ export default function Home() {
           <span className="is-dark">Current</span>
           <span className="is-success">Project</span>
         </div>
-        {//(!data || error) && (
+        {(!data || error) && (
           <>
             <p>Now Loading ...</p>
             <CustomProgressBar />
           </>
-        //)
-      }
+        )}
         {data && (
           <div className="nes-container is-rounded is-dark">
             <a href={data.svn_url}>
