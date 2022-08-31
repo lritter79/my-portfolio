@@ -9,13 +9,16 @@ function CustomProgressBar({}) {
     useEffect(() => {
         const timer = setInterval(() => {
           //console.log(seconds);
-          if (seconds === 5) setSeconds(0);
+          if (seconds === 100) setSeconds(0);
           else setSeconds(seconds + 1);
-          setClassName(colorByClassArr[seconds % 4])
-        }, 500);
+          if ((seconds % 25) == 0) setClassName(colorByClassArr[seconds / 25])
+        }, 50);
+        
         // clearing interval
         return () => clearInterval(timer);
       });
+
+      
     
       useEffect(() => {
         //console.log(skillsArray);
@@ -23,9 +26,9 @@ function CustomProgressBar({}) {
   return (
         <progress
               className={`nes-progress is-${className}`}
-              value={seconds * 20}
+              value={seconds}
               max="100"
-            >{`${seconds * 20}%`}</progress>  )
+            >{`${seconds}%`}</progress>  )
 }
 
 export default CustomProgressBar;
