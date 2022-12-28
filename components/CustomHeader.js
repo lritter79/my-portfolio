@@ -38,7 +38,6 @@ const CustomHeader = () => {
 
   const handleClick = () => {
     let pitchIndex = isOpen ? 2 : 0;
-    console.log(pitchIndex);
     const audio = new (window.AudioContext || window.webkitAudioContext)()
     const gainNode = audio.createGain()
     gainNode.gain.value = 0.05
@@ -64,9 +63,7 @@ const CustomHeader = () => {
       oscillatorFour.frequency.value = birdUpPitchArray[pitchIndex][1];
       oscillatorFive.frequency.value = birdUpPitchArray[pitchIndex][2];
       oscillatorSub.frequency.value = birdUpPitchArray[pitchIndex][3];
-      
-      //console.log(pitchIndex);
-      
+          
     }, 250);
     // clearing interval
     setTimeout(() => {

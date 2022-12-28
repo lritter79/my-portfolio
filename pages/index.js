@@ -7,7 +7,7 @@ import useSWR from "swr";
 import { colorByClassArr } from "../data/colorArray";
 import Skills from "../components/Skills";
 import CustomProgressBar from "../components/CustomProgressBar/CustomProgressBar";
-
+import ChameleonParagraph from "../components/ChameleonParagraph";
 //this is what fetches the most repo I've been woring on, but it's static, so it's based on the last time the portfolio was commited
 //so I'm commenting this out to switch to dynamically loading the most recent project
 // export const getStaticProps = async () => {
@@ -32,33 +32,22 @@ export default function Home() {
   async function FetchMostRecent(url) {
     await sleep(3000);
     const res = await fetch(url);
-    //console.log(res);
     const repos = await res.json();
-    //console.log(repos);
-    //const test = await setTimeout(5000, () => console.log(repos));
     let sortedRepos = repos
           .filter(repo => repo?.description)
           .sort(
             (a, b) => new Date(a.pushed_at) - new Date(b.pushed_at)
           );
-    //console.log(sortedRepos[sortedRepos.length - 1]);
-
     return sortedRepos.length > 0 ? sortedRepos[sortedRepos.length - 1] : null;
   }
   const { data, error } = useSWR(repoUrl, FetchMostRecent, 3);
-  const animationStyles = useSpring({
-    //onStart: () =>{ console.log('start') },
-    config: { duration: 1500 },
-    to: async (next, cancel) => {
-      await next({letterSpacing: "0px", color:"white" });
-    },
-    from: { letterSpacing: "-10px", color:"#212529"},
-  });
 
-  //console.log(mostRecentlyUpdated);
+
   return (
     <NesContainer title="Hello">
-      <animated.h5 style={animationStyles}>My name is Levon Ritter. I`m a full stack web developer</animated.h5>
+      <div>
+        <h5>My name is Levon Ritter. I`m a full stack web developer</h5>
+      </div>
       {/* <h5>My name is Levon Ritter. I`m a full stack web developer</h5> */}
 
       <div>
@@ -75,7 +64,7 @@ export default function Home() {
         {data && (
           <div className="nes-container is-rounded is-dark">
             <a href={data.svn_url}>
-              <p>{data.description}</p>
+              <ChameleonParagraph>{data.description}</ChameleonParagraph>
             </a>
           </div>
         )}
