@@ -1,6 +1,7 @@
 import homeStyles from "../styles/Home.module.sass";
 import { skillsArray } from "../data/technicalSkillsArray";
 import { useState, useEffect } from "react";
+import { useSpring, animated } from "react-spring";
 import NesContainer from "../components/NesContainer";
 import useSWR from "swr";
 import { colorByClassArr } from "../data/colorArray";
@@ -45,12 +46,21 @@ export default function Home() {
     return sortedRepos.length > 0 ? sortedRepos[sortedRepos.length - 1] : null;
   }
   const { data, error } = useSWR(repoUrl, FetchMostRecent, 3);
-
+  const animationStyles = useSpring({
+    //onStart: () =>{ console.log('start') },
+    config: { duration: 1500 },
+    to: async (next, cancel) => {
+      await next({letterSpacing: "0px", color:"white" });
+    },
+    from: { letterSpacing: "-10px", color:"#212529"},
+  });
 
   //console.log(mostRecentlyUpdated);
   return (
     <NesContainer title="Hello">
-      <h5>My name is Levon Ritter. I`m a full stack web developer</h5>
+      <animated.h5 style={animationStyles}>My name is Levon Ritter. I`m a full stack web developer</animated.h5>
+      {/* <h5>My name is Levon Ritter. I`m a full stack web developer</h5> */}
+
       <div>
         <div className={`nes-badge is-splited ${homeStyles.nesBadge}`}>
           <span className="is-dark">Current</span>

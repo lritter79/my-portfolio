@@ -25,10 +25,10 @@ const Footer = () => {
           color: "white",
         }}
       >
-        © 2021 Levon Ritter
+        © 2022 Levon Ritter
       </Typography>
     </footer>
   );
 };
 
-export default React.memo(Footer);
+export default Footer;
