@@ -19,3 +19,17 @@
 .a
     @include link-styles
 
+.easterEgg
+    height: 68px
+    width: 68px
+    display: flex
+    justify-content: center
+    flex-direction: column
+    border-radius: 50px
+    transition-duration: 2s, 2s
+    transition-property: filter, transform
+    &:hover
+        filter: invert(1)
+        transform: rotate(360deg)
+    a
+        margin: auto
