@@ -56,21 +56,28 @@ const EightBitStar = ({ star, isInverted }) => {
     delay: flickerRate,
     to: async (next, cancel) => {
       await sleep(flickerRate)
-      await next({ opacity: (star.isFlashing || isInverted) ? 0 : 1 })
+      await next({ opacity: star.isFlashing ? 0 : 1 })
       await sleep(flickerRate)
     },
     from: { opacity: 1 },
-    pause: isInverted
+  })
+
+  const fastFlickerStyles = useSpring({
+    loop: true,
+    reset: false,
+    to: async (next, cancel) => {
+      await next({ opacity: 0 })
+    },
+    from: { opacity: 1 },
   })
 
   return (
     <animated.div
-      className={`${starStyles.star} ${starStyles.invert}`}
+      className={`${starStyles.star} ${isInverted ? `${starStyles.animateFlicker}` : ""} ${isInverted ? `${starStyles.invert}` : ""}`}
       style={isInverted ? {
         backgroundColor: star.color,
         left: `${star.xPosition}%`,
         ...animationStyles,
-        ...flickerStyles
       } : {
         backgroundColor: star.color,
         left: `${star.xPosition}%`,
