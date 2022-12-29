@@ -5,8 +5,43 @@
 .icon
     padding: 15px
 
-.selected
+@keyframes flickerAnimation
+    0%
+        border: 4px solid white
+    50%
+        border: 4px solid #212529
+    100%
+        border: 4px solid white
+
+@-o-keyframes flickerAnimation
+  0%   
     border: 4px solid white
+  50%   
+    border: 4px solid #212529
+  100%  
+    border: 4px solid white
+
+@-moz-keyframes flickerAnimation
+  0%   
+    border: 4px solid white
+  50%   
+    border: 4px solid #212529
+  100%  
+    border: 4px solid white
+
+@-webkit-keyframes flickerAnimation
+  0%    
+    border: 4px solid white
+  50%   
+    border: 4px solid #212529
+  100%  
+    border: 4px solid white
+
+.selected
+    -webkit-animation: flickerAnimation 1s infinite step-end
+    -moz-animation: flickerAnimation 1s infinite step-end
+    -o-animation: flickerAnimation 1s infinite step-end
+    animation: flickerAnimation 1s infinite step-end
 
 .unselected
     border: 4px solid #212529

@@ -32,7 +32,6 @@ const CustomHeader = ({setIsInverted}) => {
 
   const handleOnmouseout = (e) => {
     setIsInverted(false);
-    console.log("out");
   }
 
 
