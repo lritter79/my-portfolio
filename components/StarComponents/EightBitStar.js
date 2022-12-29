@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import starStyles from "../../styles/EightBitStar.module.sass";
 import { useSpring, animated } from "react-spring";
 
-const EightBitStar = ({ star }) => {
+const EightBitStar = ({ star, isInverted }) => {
   const [flickerRate, setFlickerRate] = useState(Math.random() * 500)
 /*   const [showStar, setShowStar] = useState(true)
   useEffect(() => {
@@ -37,6 +37,7 @@ const EightBitStar = ({ star }) => {
       await next({ top: "110%" });
     },
     from: { top: "-10%"},
+    pause: isInverted
   });
   
 /*   const flickerStyles = useSpring({
@@ -55,16 +56,22 @@ const EightBitStar = ({ star }) => {
     delay: flickerRate,
     to: async (next, cancel) => {
       await sleep(flickerRate)
-      await next({ opacity: star.isFlashing ? 0 : 1 })
+      await next({ opacity: (star.isFlashing || isInverted) ? 0 : 1 })
       await sleep(flickerRate)
     },
     from: { opacity: 1 },
+    pause: isInverted
   })
 
   return (
     <animated.div
-      className={starStyles.star}
-      style={{
+      className={`${starStyles.star} ${starStyles.invert}`}
+      style={isInverted ? {
+        backgroundColor: star.color,
+        left: `${star.xPosition}%`,
+        ...animationStyles,
+        ...flickerStyles
+      } : {
         backgroundColor: star.color,
         left: `${star.xPosition}%`,
         ...animationStyles,

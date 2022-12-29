@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 import RainbowSpans from "./RainbowSpans";
 import { birdUpPitchArray } from "../data/birdUpPitchArray";
 
-const CustomHeader = () => {
+const CustomHeader = ({setIsInverted}) => {
   //const anchorEl = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   //const [anchorEl, setAnchorEl] = React.useState(null);
@@ -26,6 +26,15 @@ const CustomHeader = () => {
     handleClick()
     setIsOpen(!isOpen);
   };
+  const handleOnmouseover = (e) => {
+    setIsInverted(true);
+  }
+
+  const handleOnmouseout = (e) => {
+    setIsInverted(false);
+    console.log("out");
+  }
+
 
   const oscillatorFactory = (audioContext, frequency, gain) => {
     const oscillator = audioContext.createOscillator();
@@ -85,7 +94,7 @@ const CustomHeader = () => {
           backgroundColor: "#212529",
         }}
       >
-        <div className={`${headerStyles.easterEgg}`}>        
+        <div className={`${headerStyles.easterEgg}`} onMouseOver={handleOnmouseover} onMouseOut={handleOnmouseout}>        
           <a href="https://codepen.io/lritterPen/pen/zYdoyQd">
             <i className="snes-jp-logo"></i>
           </a>
