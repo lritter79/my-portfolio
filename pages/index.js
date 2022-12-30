@@ -70,6 +70,7 @@ export default function Home() {
         )}
       </div>
       <Skills />
+      <div className={homeStyles.pixelartToCss}></div>
     </NesContainer>
   );
 }
