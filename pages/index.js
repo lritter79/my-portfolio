@@ -1,13 +1,11 @@
 import homeStyles from "../styles/Home.module.sass";
-import { skillsArray } from "../data/technicalSkillsArray";
-import { useState, useEffect } from "react";
-import { useSpring, animated } from "react-spring";
+import { useEffect, useReducer, useRef, useLayoutEffect, useCallback } from "react";
 import NesContainer from "../components/NesContainer";
 import useSWR from "swr";
-import { colorByClassArr } from "../data/colorArray";
 import Skills from "../components/Skills";
 import CustomProgressBar from "../components/CustomProgressBar/CustomProgressBar";
 import ChameleonParagraph from "../components/ChameleonParagraph";
+import {useContainerDimensions} from "../functions/useContainerDimensions"
 //this is what fetches the most repo I've been woring on, but it's static, so it's based on the last time the portfolio was commited
 //so I'm commenting this out to switch to dynamically loading the most recent project
 // export const getStaticProps = async () => {
@@ -23,11 +21,36 @@ import ChameleonParagraph from "../components/ChameleonParagraph";
 //   return { props: { mostRecentlyUpdated } };
 // };
 
+const directions = ['left', 'right']
+const boundary = 40
+
+
 export default function Home() {
   const repoUrl = `https://api.github.com/users/lritter79/repos`;
   const sleep = (milliseconds) => {
     return new Promise((resolve) => setTimeout(resolve, milliseconds));
   };
+
+  const containerRef = useRef(null);
+  const { width, height } = useContainerDimensions(containerRef)
+  const initialState = {left:(width/2)}
+
+  function reducer(state, action) {
+
+    switch (action.type) {
+      
+      case directions[0]:
+        if (state.left-(width * 0.03) <= (0-boundary)) return {left:(0-boundary)};
+       return {left: state.left-(width * 0.03)}
+      case directions[1]:
+        if (state.left+(width * 0.03) >= width + boundary) return {left: width + boundary};
+        return {left: state.left+(width * 0.03)}
+      case 'reset':
+        return initialState;
+      default:
+        throw new Error();
+    }
+  }
 
   async function FetchMostRecent(url) {
     await sleep(3000);
@@ -42,10 +65,36 @@ export default function Home() {
   }
   const { data, error } = useSWR(repoUrl, FetchMostRecent, 3);
 
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  // onKeyDown handler function
+  const keyDownHandler = (event) => {
+    console.log(containerRef.current)
+
+    if (event.code === "ArrowLeft") {
+      dispatch({type:'left'})
+    }
+    if (event.code === "ArrowRight") {
+      dispatch({type:'right'})
+    }
+  };
+
+  useEffect(() => {
+    console.log(state.left)
+    console.log(width)
+
+    window.addEventListener('keydown', keyDownHandler, false);
+    return () => window.removeEventListener('keydown', keyDownHandler, false);
+  }, []);
+
+  useEffect(()=> {      dispatch({type:'reset'})
+}, [width])
+
+  useCallback()
 
   return (
-    <NesContainer title="Hello">
-      <div>
+    <NesContainer  title="Hello">
+      <div >
         <h5>My name is Levon Ritter. I`m a full stack web developer</h5>
       </div>
       {/* <h5>My name is Levon Ritter. I`m a full stack web developer</h5> */}
@@ -70,7 +119,9 @@ export default function Home() {
         )}
       </div>
       <Skills />
-      <div className={homeStyles.pixelartToCss}></div>
+      <div ref={containerRef}>
+       <div className={homeStyles.pixelartToCss} style={{left: `${state.left}px`}}></div>
+      </div>     
     </NesContainer>
   );
 }
