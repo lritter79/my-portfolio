@@ -14,7 +14,6 @@ export default React.memo(project);
 
 //make it async because we have to fetch all ids externally, but not in this case
 export const getStaticProps = async (context) => {
-
   const project = portfolioArray[context.params.id];
 
   return { props: { project } };

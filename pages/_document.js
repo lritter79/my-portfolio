@@ -1,4 +1,4 @@
-import { Html, Head, Main, NextScript } from 'next/document'
+import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
@@ -6,30 +6,30 @@ export default function Document() {
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossOrigin="true"
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="true"
         />
         {
-            // eslint-disable-next-line @next/next/no-page-custom-font
+          // eslint-disable-next-line @next/next/no-page-custom-font
         }
         <link
-            href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Slab&display=swap"
-            rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Slab&display=swap"
+          rel="stylesheet"
         />
         <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
         />
         <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
         />
-    </Head>
+      </Head>
       <body>
         <Main />
         <NextScript />
       </body>
     </Html>
-  )
+  );
 }

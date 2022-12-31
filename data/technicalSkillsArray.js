@@ -1,5 +1,8 @@
 export const skillsArray = [
-  { title: "Programming Languages", skills: ["C#","VB.NET", "JS", "Solidity"] },
+  {
+    title: "Programming Languages",
+    skills: ["C#", "VB.NET", "JS", "Solidity"],
+  },
   {
     title: "Front End",
     skills: [
@@ -11,7 +14,7 @@ export const skillsArray = [
       "Bootstrap",
       "Material UI",
       "React Spring Animations",
-      "Ant Design"
+      "Ant Design",
     ],
   },
   {
@@ -33,12 +36,8 @@ export const skillsArray = [
       "Microsoft TFS",
       "Microsoft VS",
       "Deploying Web Apps With Netlify And Vercel",
-      
     ],
     title: "Blockchain Tooling",
-    skills: [
-      "Truffle",
-      "Ganache",
-    ]
+    skills: ["Truffle", "Ganache"],
   },
 ];

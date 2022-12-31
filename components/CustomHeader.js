@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 import RainbowSpans from "./RainbowSpans";
 import { birdUpPitchArray } from "../data/birdUpPitchArray";
 
-const CustomHeader = ({setIsInverted}) => {
+const CustomHeader = ({ setIsInverted }) => {
   //const anchorEl = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   //const [anchorEl, setAnchorEl] = React.useState(null);
@@ -20,40 +20,54 @@ const CustomHeader = ({setIsInverted}) => {
 
   const handleClose = () => {
     setAnchorEl(null);
-    handleClick()
+    handleClick();
   };
   const toggleOpen = (e) => {
-    handleClick()
+    handleClick();
     setIsOpen(!isOpen);
   };
   const handleOnmouseover = (e) => {
     setIsInverted(true);
-  }
+  };
 
   const handleOnmouseout = (e) => {
     setIsInverted(false);
-  }
-
+  };
 
   const oscillatorFactory = (audioContext, frequency, gain) => {
     const oscillator = audioContext.createOscillator();
-    oscillator.type = 'sawtooth';
+    oscillator.type = "sawtooth";
     oscillator.connect(gain);
     oscillator.frequency.value = frequency;
     return oscillator;
-
-  }
+  };
 
   const handleClick = () => {
     let pitchIndex = isOpen ? 2 : 0;
-    const audio = new (window.AudioContext || window.webkitAudioContext)()
-    const gainNode = audio.createGain()
-    gainNode.gain.value = 0.05
-    gainNode.connect(audio.destination)
-    let oscillatorRoot = oscillatorFactory(audio, birdUpPitchArray[pitchIndex][0], gainNode);
-    let oscillatorFour = oscillatorFactory(audio, birdUpPitchArray[pitchIndex][1], gainNode);
-    let oscillatorFive = oscillatorFactory(audio, birdUpPitchArray[pitchIndex][2], gainNode);
-    let oscillatorSub = oscillatorFactory(audio, birdUpPitchArray[pitchIndex][3], gainNode);
+    const audio = new (window.AudioContext || window.webkitAudioContext)();
+    const gainNode = audio.createGain();
+    gainNode.gain.value = 0.05;
+    gainNode.connect(audio.destination);
+    let oscillatorRoot = oscillatorFactory(
+      audio,
+      birdUpPitchArray[pitchIndex][0],
+      gainNode
+    );
+    let oscillatorFour = oscillatorFactory(
+      audio,
+      birdUpPitchArray[pitchIndex][1],
+      gainNode
+    );
+    let oscillatorFive = oscillatorFactory(
+      audio,
+      birdUpPitchArray[pitchIndex][2],
+      gainNode
+    );
+    let oscillatorSub = oscillatorFactory(
+      audio,
+      birdUpPitchArray[pitchIndex][3],
+      gainNode
+    );
 
     oscillatorRoot.start();
     oscillatorFour.start();
@@ -62,16 +76,15 @@ const CustomHeader = ({setIsInverted}) => {
 
     const timer = setInterval(() => {
       if (!isOpen) {
-        pitchIndex = pitchIndex + 1
+        pitchIndex = pitchIndex + 1;
       } else {
-        pitchIndex = pitchIndex - 1
+        pitchIndex = pitchIndex - 1;
       }
 
       oscillatorRoot.frequency.value = birdUpPitchArray[pitchIndex][0];
       oscillatorFour.frequency.value = birdUpPitchArray[pitchIndex][1];
       oscillatorFive.frequency.value = birdUpPitchArray[pitchIndex][2];
       oscillatorSub.frequency.value = birdUpPitchArray[pitchIndex][3];
-          
     }, 250);
     // clearing interval
     setTimeout(() => {
@@ -82,7 +95,7 @@ const CustomHeader = ({setIsInverted}) => {
       oscillatorSub.stop();
       //off by 1 millisecond in order to not trigger the set interval a fourth time and get an out of index error
     }, 749);
-}
+  };
 
   return (
     // eslint-disable-next-line react/jsx-no-undef
@@ -93,7 +106,11 @@ const CustomHeader = ({setIsInverted}) => {
           backgroundColor: "#212529",
         }}
       >
-        <div className={`${headerStyles.easterEgg}`} onMouseOver={handleOnmouseover} onMouseOut={handleOnmouseout}>        
+        <div
+          className={`${headerStyles.easterEgg}`}
+          onMouseOver={handleOnmouseover}
+          onMouseOut={handleOnmouseout}
+        >
           <a href="https://codepen.io/lritterPen/pen/zYdoyQd">
             <i className="snes-jp-logo"></i>
           </a>
