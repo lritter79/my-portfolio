@@ -118,7 +118,7 @@ export default function Home() {
         )}
       </div>
       <Skills />
-      <div ref={containerRef}>
+      <div className="galaga-container" ref={containerRef}>
         <Spaceship left={state.left}/>
       </div>     
     </NesContainer>
