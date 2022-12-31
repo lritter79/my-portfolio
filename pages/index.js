@@ -69,7 +69,6 @@ export default function Home() {
 
   // onKeyDown handler function
   const keyDownHandler = (event) => {
-    console.log(containerRef.current)
 
     if (event.code === "ArrowLeft") {
       dispatch({type:'left'})
@@ -80,14 +79,12 @@ export default function Home() {
   };
 
   useEffect(() => {
-    console.log(state.left)
-    console.log(width)
-
     window.addEventListener('keydown', keyDownHandler, false);
     return () => window.removeEventListener('keydown', keyDownHandler, false);
   }, []);
 
-  useEffect(()=> {      dispatch({type:'reset'})
+  useEffect(()=> {      
+    dispatch({type:'reset'})
 }, [width])
 
   useCallback()
