@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 function Spaceship({ left }) {
   const [missles, setMissles] = useState([]);
   const ref = useRef(left);
+  const lastFiredTimeRef = useRef(0);
 
   const keyDownHandler = (event) => {
     if (event.code === "Space") {
@@ -13,9 +14,23 @@ function Spaceship({ left }) {
     }
   };
 
+  const clickHandler = (event) => {
+    createMissle();
+  };
+
   function createMissle() {
-    let missle = { missleLeft: ref.current, id: Date.now() };
-    setMissles((prev) => [...prev, missle]);
+    if (Date.now() > lastFiredTimeRef.current + 1500) {
+      lastFiredTimeRef.current = Date.now();
+      let newMissle = { missleLeft: ref.current, id: lastFiredTimeRef.current };
+      setMissles((prev) => [...prev, newMissle]);
+      setTimeout(() => {
+        console.log(newMissle.id);
+        //console.log(missles.filter(missle => missle.id != newMissle.id))
+        setMissles((prev) =>
+          prev.filter((missle) => missle.id != newMissle.id)
+        );
+      }, 10000);
+    }
   }
 
   useEffect(() => {
@@ -28,17 +43,33 @@ function Spaceship({ left }) {
   }, [left]);
 
   useEffect(() => {
-    //console.log(missles)
+    console.log(missles);
   }, [missles]);
+
+  // const timer = setInterval(() => {
+  //   if (!isOpen) {
+  //     pitchIndex = pitchIndex + 1;
+  //   } else {
+  //     pitchIndex = pitchIndex - 1;
+  //   }
+
+  //   oscillatorRoot.frequency.value = birdUpPitchArray[pitchIndex][0];
+  //   oscillatorFour.frequency.value = birdUpPitchArray[pitchIndex][1];
+  //   oscillatorFive.frequency.value = birdUpPitchArray[pitchIndex][2];
+  //   oscillatorSub.frequency.value = birdUpPitchArray[pitchIndex][3];
+  // }, 1000);
+  // // clearing interval
+  // setTimeout(() => {
+  //   clearInterval(timer);
+
+  // }, 749);
 
   return (
     <>
       <div className={styles.pixelartToCss} style={{ left: `${left}px` }}>
         <div
           style={{ height: "52px", width: "62px" }}
-          onClick={() => {
-            createMissle();
-          }}
+          onClick={clickHandler}
         ></div>
       </div>
       {missles.map((missle, i) => {
