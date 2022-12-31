@@ -9,11 +9,14 @@ function Spaceship({left}) {
 
     const keyDownHandler = (event) => {    
             if (event.code === "Space") { 
-                let missle = {missleLeft:ref.current, id:Date.now()}
-                setMissles(prev => [...prev, missle])
+                createMissle();
             }
         }
     
+        function createMissle() {
+            let missle = {missleLeft:ref.current, id:Date.now()}
+                setMissles(prev => [...prev, missle])
+        }
 
       useEffect(() => {
         window.addEventListener('keydown', keyDownHandler, false);
@@ -21,19 +24,20 @@ function Spaceship({left}) {
       }, []);
 
       useEffect(()=> {
-        console.log(left)
         ref.current = left;
 
       },[left])
 
       useEffect(()=> {
-        console.log(missles)
+        //console.log(missles)
       },[missles])
 
 
   return (
     <>            
-        <div className={styles.pixelartToCss} style={{left: `${left}px`}}></div>
+        <div className={styles.pixelartToCss}  style={{left: `${left}px`}}>
+            <div style={{height:"52px", width:"62px"}} onClick={()=> {createMissle()}}></div>
+        </div>
         {missles.map((missle, i) => {
             return <Missle left={missle.missleLeft} key={uuidv4()}/>;
         })}
