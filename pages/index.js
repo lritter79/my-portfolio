@@ -4,6 +4,7 @@ import NesContainer from "../components/NesContainer";
 import useSWR from "swr";
 import Skills from "../components/Skills";
 import CustomProgressBar from "../components/CustomProgressBar/CustomProgressBar";
+import Spaceship from "../components/GalagaComponents/Spaceship";
 import ChameleonParagraph from "../components/ChameleonParagraph";
 import {useContainerDimensions} from "../functions/useContainerDimensions"
 //this is what fetches the most repo I've been woring on, but it's static, so it's based on the last time the portfolio was commited
@@ -91,6 +92,7 @@ export default function Home() {
 
   return (
     <NesContainer  title="Hello">
+      <div className={homeStyles.missle}></div>
       <div >
         <h5>My name is Levon Ritter. I`m a full stack web developer</h5>
       </div>
@@ -117,7 +119,7 @@ export default function Home() {
       </div>
       <Skills />
       <div ref={containerRef}>
-       <div className={homeStyles.pixelartToCss} style={{left: `${state.left}px`}}></div>
+        <Spaceship left={state.left}/>
       </div>     
     </NesContainer>
   );
