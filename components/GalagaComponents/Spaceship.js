@@ -72,7 +72,7 @@ function Spaceship({ left }) {
         ></div>
       </div>
       {missles.map((missle, i) => {
-        return <Missle left={missle.missleLeft} key={uuidv4()} />;
+        return <Missle left={missle.missleLeft} id={missle.id} key={missle.id} />;
       })}
     </>
   );
