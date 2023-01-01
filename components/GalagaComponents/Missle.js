@@ -6,7 +6,7 @@ const Missle = ({ left, id }) => {
   // return ()=>console.log(`explode", ' ', ${id}`)}, []);
 
   return (
-    <div className={styles.missle} style={{ left: `${left + 24}px` }}></div>
+    <div className={styles.missle} style={{ left: `${left + 24}px` }}>{id}</div>
   );
 };
 

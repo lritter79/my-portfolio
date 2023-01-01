@@ -27,7 +27,7 @@ function Spaceship({ left }) {
         setMissles((prev) =>
           prev.filter((missle) => missle.id != newMissle.id)
         );
-      }, 10000);
+      }, 9000);
     }
   }
 
