@@ -32,6 +32,7 @@ function Spaceship({ left }) {
   }
 
   useEffect(() => {
+    console.log('ship renders')
     window.addEventListener("keydown", keyDownHandler, false);
     return () => window.removeEventListener("keydown", keyDownHandler, false);
   }, []);
@@ -39,6 +40,10 @@ function Spaceship({ left }) {
   useEffect(() => {
     ref.current = left;
   }, [left]);
+
+  useEffect(() => {
+    console.log(missles);
+  }, [missles]);
 
   // const timer = setInterval(() => {
   //   if (!isOpen) {
@@ -67,9 +72,7 @@ function Spaceship({ left }) {
         ></div>
       </div>
       {missles.map((missle, i) => {
-        return (
-          <Missle left={missle.missleLeft} id={missle.id} key={missle.id} />
-        );
+        return <Missle left={missle.missleLeft} key={uuidv4()} />;
       })}
     </>
   );
