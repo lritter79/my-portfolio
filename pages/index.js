@@ -1,12 +1,18 @@
 import homeStyles from "../styles/Home.module.sass";
-import { useEffect, useReducer, useRef, useLayoutEffect, useCallback } from "react";
+import {
+  useEffect,
+  useReducer,
+  useRef,
+  useLayoutEffect,
+  useCallback,
+} from "react";
 import NesContainer from "../components/NesContainer";
 import useSWR from "swr";
 import Skills from "../components/Skills";
 import CustomProgressBar from "../components/CustomProgressBar/CustomProgressBar";
 import Spaceship from "../components/GalagaComponents/Spaceship";
 import ChameleonParagraph from "../components/ChameleonParagraph";
-import {useContainerDimensions} from "../functions/useContainerDimensions"
+import { useContainerDimensions } from "../functions/useContainerDimensions";
 //this is what fetches the most repo I've been woring on, but it's static, so it's based on the last time the portfolio was commited
 //so I'm commenting this out to switch to dynamically loading the most recent project
 // export const getStaticProps = async () => {
@@ -22,9 +28,8 @@ import {useContainerDimensions} from "../functions/useContainerDimensions"
 //   return { props: { mostRecentlyUpdated } };
 // };
 
-const directions = ['left', 'right']
-const boundary = 40
-
+const directions = ["left", "right"];
+const boundary = 40;
 
 export default function Home() {
   const repoUrl = `https://api.github.com/users/lritter79/repos`;
@@ -33,20 +38,20 @@ export default function Home() {
   };
 
   const containerRef = useRef(null);
-  const { width, height } = useContainerDimensions(containerRef)
-  const initialState = {left:(width/2)}
+  const { width, height } = useContainerDimensions(containerRef);
+  const initialState = { left: width / 2 };
 
   function reducer(state, action) {
-
     switch (action.type) {
-      
       case directions[0]:
-        if (state.left-(width * 0.03) <= (0-boundary)) return {left:(0-boundary)};
-       return {left: state.left-(width * 0.03)}
+        if (state.left - width * 0.03 <= 0 - boundary)
+          return { left: 0 - boundary };
+        return { left: state.left - width * 0.03 };
       case directions[1]:
-        if (state.left+(width * 0.03) >= width + boundary) return {left: width + boundary};
-        return {left: state.left+(width * 0.03)}
-      case 'reset':
+        if (state.left + width * 0.03 >= width + boundary)
+          return { left: width + boundary };
+        return { left: state.left + width * 0.03 };
+      case "reset":
         return initialState;
       default:
         throw new Error();
@@ -58,10 +63,8 @@ export default function Home() {
     const res = await fetch(url);
     const repos = await res.json();
     let sortedRepos = repos
-          .filter(repo => repo?.description)
-          .sort(
-            (a, b) => new Date(a.pushed_at) - new Date(b.pushed_at)
-          );
+      .filter((repo) => repo?.description)
+      .sort((a, b) => new Date(a.pushed_at) - new Date(b.pushed_at));
     return sortedRepos.length > 0 ? sortedRepos[sortedRepos.length - 1] : null;
   }
   const { data, error } = useSWR(repoUrl, FetchMostRecent, 3);
@@ -70,30 +73,29 @@ export default function Home() {
 
   // onKeyDown handler function
   const keyDownHandler = (event) => {
-
     if (event.code === "ArrowLeft") {
-      dispatch({type:'left'})
+      dispatch({ type: "left" });
     }
     if (event.code === "ArrowRight") {
-      dispatch({type:'right'})
+      dispatch({ type: "right" });
     }
   };
 
   useEffect(() => {
-    window.addEventListener('keydown', keyDownHandler, false);
-    return () => window.removeEventListener('keydown', keyDownHandler, false);
+    window.addEventListener("keydown", keyDownHandler, false);
+    return () => window.removeEventListener("keydown", keyDownHandler, false);
   }, []);
 
-  useEffect(()=> {      
-    dispatch({type:'reset'})
-}, [width])
+  useEffect(() => {
+    dispatch({ type: "reset" });
+  }, [width]);
 
-  useCallback()
+  useCallback();
 
   return (
-    <NesContainer  title="Hello">
+    <NesContainer title="Hello">
       <div className={homeStyles.missle}></div>
-      <div >
+      <div>
         <h5>My name is Levon Ritter. I`m a full stack web developer</h5>
       </div>
       {/* <h5>My name is Levon Ritter. I`m a full stack web developer</h5> */}
@@ -118,9 +120,9 @@ export default function Home() {
         )}
       </div>
       <Skills />
-      <div ref={containerRef}>
-        <Spaceship left={state.left}/>
-      </div>     
+      <div className="galaga-container" ref={containerRef}>
+        <Spaceship left={state.left} />
+      </div>
     </NesContainer>
   );
 }

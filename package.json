@@ -19,6 +19,7 @@
     "react-spring": "^9.3.0",
     "sass": "^1.43.2",
     "swr": "^1.0.1",
+    "uuid": "^9.0.0",
     "yarn": "^1.22.19"
   },
   "devDependencies": {

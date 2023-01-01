@@ -18,7 +18,6 @@ const Meta = ({ title, keywords, description }) => {
       {
         // eslint-disable-next-line @next/next/no-page-custom-font
       }
-      
     </Head>
   );
 };

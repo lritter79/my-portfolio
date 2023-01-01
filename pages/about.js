@@ -10,7 +10,7 @@ const about = () => {
         editing the website at the non-profit at which I interned. Coding became
         a fun, new creative outlet for me. I enrolled in Tech Elevator to learn
         more about full-stack web development. After completing the program, I
-        got my first developer role at Civil and Environmental Consultants, Inc. 
+        got my first developer role at Civil and Environmental Consultants, Inc.
         My next job was full stack developer at Automated Health Systems.
         Currently, I am a front end engineer at Ottertune, Inc.
       </Typography>
