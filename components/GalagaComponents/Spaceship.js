@@ -21,11 +21,9 @@ function Spaceship({ left }) {
   function createMissle() {
     if (Date.now() > lastFiredTimeRef.current + 1500) {
       lastFiredTimeRef.current = Date.now();
-      let newMissle = { missleLeft: ref.current, id: lastFiredTimeRef.current };
+      let newMissle = { missleLeft: ref.current, id: uuidv4()};
       setMissles((prev) => [...prev, newMissle]);
       setTimeout(() => {
-        console.log(newMissle.id);
-        //console.log(missles.filter(missle => missle.id != newMissle.id))
         setMissles((prev) =>
           prev.filter((missle) => missle.id != newMissle.id)
         );
@@ -34,6 +32,7 @@ function Spaceship({ left }) {
   }
 
   useEffect(() => {
+    console.log('ship renders')
     window.addEventListener("keydown", keyDownHandler, false);
     return () => window.removeEventListener("keydown", keyDownHandler, false);
   }, []);
@@ -42,9 +41,7 @@ function Spaceship({ left }) {
     ref.current = left;
   }, [left]);
 
-  useEffect(() => {
-    console.log(missles);
-  }, [missles]);
+
 
   // const timer = setInterval(() => {
   //   if (!isOpen) {
@@ -73,7 +70,7 @@ function Spaceship({ left }) {
         ></div>
       </div>
       {missles.map((missle, i) => {
-        return <Missle left={missle.missleLeft} key={uuidv4()} />;
+        return <Missle left={missle.missleLeft} id={missle.id} key={missle.id} />;
       })}
     </>
   );
