@@ -15,6 +15,8 @@ export const skillsArray = [
       "Material UI",
       "React Spring Animations",
       "Ant Design",
+      "Storybook",
+      "Chromatic"
     ],
   },
   {
@@ -35,6 +37,7 @@ export const skillsArray = [
       "Git",
       "Microsoft TFS",
       "Microsoft VS",
+      "Circle CI",
       "Deploying Web Apps With Netlify And Vercel",
     ],
     title: "Blockchain Tooling",
