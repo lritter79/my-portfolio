@@ -3,8 +3,6 @@ import {
   useEffect,
   useReducer,
   useRef,
-  useLayoutEffect,
-  useCallback,
 } from "react";
 import NesContainer from "../components/NesContainer";
 import useSWR from "swr";
@@ -61,6 +59,12 @@ export default function Home() {
         throw new Error();
     }
   }
+
+  useEffect(()=> {
+    if (orientation?.gamma && orientation?.gamma < 26 && orientation?.gamma > -26) {
+      state.left = (width / 2) + (orientation.gamma * (width * 0.02));
+    }
+  },[orientation?.gamma])
 
   async function FetchMostRecent(url) {
     await sleep(3000);
