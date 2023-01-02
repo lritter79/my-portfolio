@@ -63,15 +63,6 @@ const EightBitStar = ({ star, isInverted }) => {
     from: { opacity: 1 },
   });
 
-  const fastFlickerStyles = useSpring({
-    loop: true,
-    reset: false,
-    to: async (next, cancel) => {
-      await next({ opacity: 0 });
-    },
-    from: { opacity: 1 },
-  });
-
   return (
     <animated.div
       className={`${starStyles.star} ${
