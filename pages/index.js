@@ -33,7 +33,8 @@ const directions = ["left", "right"];
 const boundary = 40;
 
 export default function Home() {
-  const { orientation, requestAccess, revokeAccess, orientationError } = useDeviceOrientation();
+  const { orientation, requestAccess, revokeAccess, orientationError } =
+    useDeviceOrientation();
 
   const repoUrl = `https://api.github.com/users/lritter79/repos`;
   const sleep = (milliseconds) => {
@@ -84,28 +85,17 @@ export default function Home() {
     }
   };
 
-
-
   useEffect(() => {
-    const handlePermission = async () => {
-      let access = await requestAccess();
-      alert(access);
-    };
-
-    handlePermission();
     window.addEventListener("keydown", keyDownHandler, false);
-    return () => { 
-      revokeAccess()
+    return () => {
+      revokeAccess();
       window.removeEventListener("keydown", keyDownHandler, false);
-    }
+    };
   }, []);
 
   useEffect(() => {
     dispatch({ type: "reset" });
   }, [width]);
-
-
-
 
   return (
     <NesContainer title="Hello">
@@ -113,7 +103,7 @@ export default function Home() {
       <div>
         <h5>
           My name is Levon Ritter. I`m a full stack web developer
-          {orientation ? `${orientation.gamma}`:'none'}
+          {orientation ? `${orientation.gamma}` : "none"}
           {orientation}
           {orientationError && `${orientationError}`}
         </h5>
@@ -142,6 +132,20 @@ export default function Home() {
       <Skills />
       <div className="galaga-container" ref={containerRef}>
         <Spaceship left={state.left} />
+        <button
+          type="button"
+          onClick={() => {
+            const handlePermission = async () => {
+              let access = await requestAccess();
+              alert(access);
+            };
+
+            handlePermission();
+          }}
+          title="Play"
+        >
+          {"Play"}
+        </button>
       </div>
     </NesContainer>
   );
