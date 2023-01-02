@@ -133,7 +133,7 @@ export default function Home() {
       <div className="galaga-container" ref={containerRef}>
         <Spaceship left={state.left} />
         <button
-          typeof="button"
+          type="button"
           onClick={() => {
             const handlePermission = async () => {
               let access = await requestAccess();
