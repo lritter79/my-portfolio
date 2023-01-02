@@ -32,7 +32,6 @@ function Spaceship({ left }) {
   }
 
   useEffect(() => {
-    console.log("ship renders");
     window.addEventListener("keydown", keyDownHandler, false);
     return () => window.removeEventListener("keydown", keyDownHandler, false);
   }, []);
@@ -41,27 +40,9 @@ function Spaceship({ left }) {
     ref.current = left;
   }, [left]);
 
-  useEffect(() => {
-    console.log(missles);
-  }, [missles]);
-
-  // const timer = setInterval(() => {
-  //   if (!isOpen) {
-  //     pitchIndex = pitchIndex + 1;
-  //   } else {
-  //     pitchIndex = pitchIndex - 1;
-  //   }
-
-  //   oscillatorRoot.frequency.value = birdUpPitchArray[pitchIndex][0];
-  //   oscillatorFour.frequency.value = birdUpPitchArray[pitchIndex][1];
-  //   oscillatorFive.frequency.value = birdUpPitchArray[pitchIndex][2];
-  //   oscillatorSub.frequency.value = birdUpPitchArray[pitchIndex][3];
-  // }, 1000);
-  // // clearing interval
-  // setTimeout(() => {
-  //   clearInterval(timer);
-
-  // }, 749);
+  // useEffect(() => {
+  //   console.log(missles);
+  // }, [missles]);
 
   return (
     <>
