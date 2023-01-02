@@ -104,7 +104,6 @@ export default function Home() {
         <h5>
           My name is Levon Ritter. I`m a full stack web developer
           {orientation ? `${orientation.gamma}` : "none"}
-          {orientation}
           {orientationError && `${orientationError}`}
         </h5>
       </div>
