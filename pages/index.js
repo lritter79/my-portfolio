@@ -13,6 +13,7 @@ import CustomProgressBar from "../components/CustomProgressBar/CustomProgressBar
 import Spaceship from "../components/GalagaComponents/Spaceship";
 import ChameleonParagraph from "../components/ChameleonParagraph";
 import { useContainerDimensions } from "../functions/useContainerDimensions";
+import { useDeviceOrientation } from "../functions/useDeviceOrientation";
 //this is what fetches the most repo I've been woring on, but it's static, so it's based on the last time the portfolio was commited
 //so I'm commenting this out to switch to dynamically loading the most recent project
 // export const getStaticProps = async () => {
@@ -83,11 +84,14 @@ export default function Home() {
     }
   };
 
-  const handlePermission = async () => {
-    requestAccess();
-  };
+
 
   useEffect(() => {
+    const handlePermission = async () => {
+      let access = await requestAccess();
+      alert(access);
+    };
+
     handlePermission();
     window.addEventListener("keydown", keyDownHandler, false);
     return () => window.removeEventListener("keydown", keyDownHandler, false);
