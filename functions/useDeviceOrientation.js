@@ -54,14 +54,12 @@ export const useDeviceOrientation = () => {
       try {
         permission = await DeviceOrientationEvent.requestPermission();
       } catch (err) {
-        const e = new Error((err && err.message) || "unknown error");
+        const e = ((err && err.message) || "unknown error");
         setError(e);
         return false;
       }
       if (permission !== "granted") {
-        setError(
-          new Error("Request to access the device orientation was rejected")
-        );
+        setError("Request to access the device orientation was rejected");
         return false;
       }
     }
