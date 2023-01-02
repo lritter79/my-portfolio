@@ -32,7 +32,7 @@ function Spaceship({ left }) {
   }
 
   useEffect(() => {
-    console.log('ship renders')
+    console.log("ship renders");
     window.addEventListener("keydown", keyDownHandler, false);
     return () => window.removeEventListener("keydown", keyDownHandler, false);
   }, []);
@@ -72,7 +72,9 @@ function Spaceship({ left }) {
         ></div>
       </div>
       {missles.map((missle, i) => {
-        return <Missle left={missle.missleLeft} id={missle.id} key={missle.id} />;
+        return (
+          <Missle left={missle.missleLeft} id={missle.id} key={missle.id} />
+        );
       })}
     </>
   );
