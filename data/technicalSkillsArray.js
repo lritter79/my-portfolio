@@ -16,7 +16,7 @@ export const skillsArray = [
       "React Spring Animations",
       "Ant Design",
       "Storybook",
-      "Chromatic"
+      "Chromatic",
     ],
   },
   {

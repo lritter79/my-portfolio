@@ -32,6 +32,8 @@ const directions = ["left", "right"];
 const boundary = 40;
 
 export default function Home() {
+  const { orientation, requestAccess, revokeAccess } = useDeviceOrientation();
+
   const repoUrl = `https://api.github.com/users/lritter79/repos`;
   const sleep = (milliseconds) => {
     return new Promise((resolve) => setTimeout(resolve, milliseconds));
@@ -81,7 +83,12 @@ export default function Home() {
     }
   };
 
+  const handlePermission = async () => {
+    requestAccess();
+  };
+
   useEffect(() => {
+    handlePermission();
     window.addEventListener("keydown", keyDownHandler, false);
     return () => window.removeEventListener("keydown", keyDownHandler, false);
   }, []);
@@ -96,7 +103,10 @@ export default function Home() {
     <NesContainer title="Hello">
       <div className={homeStyles.missle}></div>
       <div>
-        <h5>My name is Levon Ritter. I`m a full stack web developer</h5>
+        <h5>
+          My name is Levon Ritter. I`m a full stack web developer
+          {orientation && `${orientation.gamma}`}
+        </h5>
       </div>
       {/* <h5>My name is Levon Ritter. I`m a full stack web developer</h5> */}
 
