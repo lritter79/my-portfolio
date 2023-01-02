@@ -42,7 +42,7 @@ export default function Home() {
   const containerRef = useRef(null);
   const { width, height } = useContainerDimensions(containerRef);
   const initialState = { left: width / 2 };
-
+const galagaFeatureReady = false;
   function reducer(state, action) {
     switch (action.type) {
       case directions[0]:
@@ -107,8 +107,6 @@ export default function Home() {
       <div>
         <h5>
           My name is Levon Ritter. I`m a full stack web developer
-          {orientation ? `${orientation.gamma}` : "none"}
-          {orientationError && `${orientationError}`}
         </h5>
       </div>
       {/* <h5>My name is Levon Ritter. I`m a full stack web developer</h5> */}
@@ -135,20 +133,21 @@ export default function Home() {
       <Skills />
       <div className="galaga-container" ref={containerRef}>
         <Spaceship left={state.left} />
-        <button
-          type="button"
-          onClick={() => {
-            const handlePermission = async () => {
-              let access = await requestAccess();
-              alert(access);
-            };
+        {galagaFeatureReady &&
+          <button
+            type="button"
+            onClick={() => {
+              const handlePermission = async () => {
+                let access = await requestAccess();
+              };
 
-            handlePermission();
-          }}
-          title="Play"
-        >
-          {"Play"}
-        </button>
+              handlePermission();
+            }}
+            title="Play"
+          >
+            {orientationError ? `${orientationError}` : "Play"}
+          </button>          
+        }
       </div>
     </NesContainer>
   );
