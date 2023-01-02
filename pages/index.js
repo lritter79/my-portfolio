@@ -112,7 +112,8 @@ export default function Home() {
       <div>
         <h5>
           My name is Levon Ritter. I`m a full stack web developer
-          {orientation && `${orientation.gamma}`}
+          {orientation ? `${orientation.gamma}`:'none'}
+          {orientation}
         </h5>
       </div>
       {/* <h5>My name is Levon Ritter. I`m a full stack web developer</h5> */}
