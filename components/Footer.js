@@ -25,7 +25,7 @@ const Footer = () => {
           color: "white",
         }}
       >
-        © 2022 Levon Ritter
+        © 2023 Levon Ritter
       </Typography>
     </footer>
   );
