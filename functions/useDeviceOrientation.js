@@ -54,7 +54,8 @@ export const useDeviceOrientation = () => {
       try {
         permission = await DeviceOrientationEvent.requestPermission();
       } catch (err) {
-        const e = ((err && err.message) || "unknown error");
+        const e = (err && err.message) || "unknown error";
+        alert(e);
         setError(e);
         return false;
       }
