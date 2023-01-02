@@ -10,7 +10,7 @@ const roundAngle = (angle) => {
 };
 
 export const useDeviceOrientation = () => {
-  const [error, setError] = useState(null);
+  const [orientationError, setError] = useState(null);
   const [orientation, setOrientation] = useState(null);
 
   const onDeviceOrientation = (event) => {
@@ -88,7 +88,7 @@ export const useDeviceOrientation = () => {
 
   return {
     orientation,
-    error,
+    orientationError,
     requestAccess,
     revokeAccess,
   };

@@ -33,7 +33,7 @@ const directions = ["left", "right"];
 const boundary = 40;
 
 export default function Home() {
-  const { orientation, requestAccess, revokeAccess } = useDeviceOrientation();
+  const { orientation, requestAccess, revokeAccess, orientationError } = useDeviceOrientation();
 
   const repoUrl = `https://api.github.com/users/lritter79/repos`;
   const sleep = (milliseconds) => {
@@ -104,7 +104,8 @@ export default function Home() {
     dispatch({ type: "reset" });
   }, [width]);
 
-  useCallback();
+
+
 
   return (
     <NesContainer title="Hello">
@@ -114,6 +115,7 @@ export default function Home() {
           My name is Levon Ritter. I`m a full stack web developer
           {orientation ? `${orientation.gamma}`:'none'}
           {orientation}
+          {orientationError && `${orientationError}`}
         </h5>
       </div>
       {/* <h5>My name is Levon Ritter. I`m a full stack web developer</h5> */}
