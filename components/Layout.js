@@ -2,13 +2,17 @@ import React, { useState, useRef, useReducer, useEffect } from "react";
 import Footer from "../components/Footer";
 import styles from "../styles/Home.module.sass";
 import CustomHeader from "../components/CustomHeader";
+import ArcadeButton from "./GalagaComponents/ArcadeButton";
 import Meta from "../components/Meta";
 import Starfield from "./StarComponents/Starfield";
 import Spaceship from "./GalagaComponents/Spaceship";
 import { useContainerDimensions } from "../functions/useContainerDimensions";
 import { useDeviceOrientation } from "../functions/useDeviceOrientation";
+import { useRouter } from 'next/router';
+
 const Layout = ({ children }) => {
   const directions = ["left", "right"];
+  const { pathname } = useRouter();
   const boundary = 0;
   const { orientation, requestAccess, revokeAccess, orientationError } =
     useDeviceOrientation();
@@ -48,10 +52,14 @@ const Layout = ({ children }) => {
   };
 
   useEffect(() => {
-    window.addEventListener("keydown", keyDownHandler, false);
+    if (pathname !== "/contact") {
+      window.addEventListener("keydown", keyDownHandler, false);
+    }
     return () => {
       revokeAccess();
-      window.removeEventListener("keydown", keyDownHandler, false);
+      if (pathname !== "/contact") {
+        window.removeEventListener("keydown", keyDownHandler, false);  
+      }
     };
   }, []);
 
@@ -79,6 +87,7 @@ const Layout = ({ children }) => {
         >
           <div>
             {children}
+            {pathname !== "/contact" && 
             <div className={styles.galagaContainer} ref={containerRef}>
               <Spaceship left={state.left} />
               {galagaFeatureReady && (
@@ -96,7 +105,9 @@ const Layout = ({ children }) => {
                   {orientationError ? `${orientationError}` : "Play"}
                 </button>
               )}
-            </div>
+              <ArcadeButton/>
+            </div>} 
+            
           </div>
           <Starfield isInverted={isInverted} />
         </div>
