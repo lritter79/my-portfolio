@@ -9,7 +9,7 @@ import { useContainerDimensions } from "../functions/useContainerDimensions";
 import { useDeviceOrientation } from "../functions/useDeviceOrientation";
 const Layout = ({ children }) => {
   const directions = ["left", "right"];
-  const boundary = 40;
+  const boundary = 0;
   const { orientation, requestAccess, revokeAccess, orientationError } =
     useDeviceOrientation();
   const [isInverted, setIsInverted] = useState(false);
