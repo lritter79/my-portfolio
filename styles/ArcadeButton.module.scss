@@ -1,6 +1,7 @@
 $bg: #333;
 $push-red: hsla(10, 90%, 40%, 1);
 $push-white: white;
+$push-green: hsl(151, 49%, 45%);
 $transition-time: 10ms;
 $push-size: 50px;
 
@@ -21,7 +22,10 @@ $push-size: 50px;
   &.white {
     background-color: $push-white;
   }
-  &:active{
+  &.green {
+    background-color: $push-green;
+  }
+  &:active {
     outline: none;
   }
   &:focus {
@@ -31,117 +35,189 @@ $push-size: 50px;
 
 .pushSkeuo {
   &.red {
-    box-shadow: 
-      inset 0 $push-size/24 0 lighten($push-red, 5%),
+    box-shadow: inset 0 $push-size/24 0 lighten($push-red, 5%),
       inset 0 (-$push-size/24) $push-size/60 darken($push-red, 5%),
       0 0 $push-size/60 $push-red,
       inset 0 0 $push-size/30 darken($push-red, 15%),
-      inset 0 0 $push-size/30 transparentize($bg, .5),
+      inset 0 0 $push-size/30 transparentize($bg, 0.5),
       inset 0 0 $push-size/60 $push-size/12 $push-red,
-      inset 0 (-$push-size/30) $push-size/40 $push-size/10 transparentize($bg, .3),
+      inset 0 (-$push-size/30) $push-size/40 $push-size/10
+        transparentize($bg, 0.3),
       inset 0 0 $push-size/60 $push-size/10 darken($push-red, 20%),
-      inset 0 0 $push-size/60 $push-size/10 transparentize($bg, .3),
+      inset 0 0 $push-size/60 $push-size/10 transparentize($bg, 0.3),
       inset 0 0 $push-size/120 $push-size/9.2 darken($push-red, 50%),
-      inset 0 0 $push-size/120 $push-size/8 transparentize(lighten($push-red, 30%), .3),
-      inset 0 $push-size/20 0 $push-size/8.5 transparentize(lighten($push-red, 15%), .3),
-      inset 0 (-$push-size/20) $push-size/60 $push-size/8.5 transparentize(darken($push-red, 10%), .8),
+      inset 0 0 $push-size/120 $push-size/8
+        transparentize(lighten($push-red, 30%), 0.3),
+      inset 0 $push-size/20 0 $push-size/8.5
+        transparentize(lighten($push-red, 15%), 0.3),
+      inset 0 (-$push-size/20) $push-size/60 $push-size/8.5
+        transparentize(darken($push-red, 10%), 0.8),
       inset 0 0 0 $push-size/5.5 $push-red,
       inset 0 $push-size/2.5 $push-size/7.5 darken($push-red, 5%),
       inset 0 0 $push-size/10 $push-size/6 darken($push-red, 10%),
-      0 $push-size/40 $push-size/20 rgba(0, 0, 0, .5);
+      0 $push-size/40 $push-size/20 rgba(0, 0, 0, 0.5);
   }
   &.white {
-    box-shadow: 
-    inset 0 $push-size/24 0 lighten($push-white, 5%),
-    inset 0 (-$push-size/24) $push-size/60 darken($push-white, 5%),
-    0 0 $push-size/60 $push-white,
-    inset 0 0 $push-size/30 darken($push-white, 15%),
-    inset 0 0 $push-size/30 transparentize($bg, .5),
-    inset 0 0 $push-size/60 $push-size/12 $push-white,
-    inset 0 (-$push-size/30) $push-size/40 $push-size/10 transparentize($bg, .3),
-    inset 0 0 $push-size/60 $push-size/10 darken($push-white, 20%),
-    inset 0 0 $push-size/60 $push-size/10 transparentize($bg, .3),
-    inset 0 0 $push-size/120 $push-size/9.2 darken($push-white, 50%),
-    inset 0 0 $push-size/120 $push-size/8 transparentize(lighten($push-white, 30%), .3),
-    inset 0 $push-size/20 0 $push-size/8.5 transparentize(lighten($push-white, 15%), .3),
-    inset 0 (-$push-size/20) $push-size/60 $push-size/8.5 transparentize(darken($push-white, 10%), .8),
-    inset 0 0 0 $push-size/5.5 $push-white,
-    inset 0 $push-size/2.5 $push-size/7.5 darken($push-white, 5%),
-    inset 0 0 $push-size/10 $push-size/6 darken($push-white, 10%),
-    0 $push-size/40 $push-size/20 rgba(0, 0, 0, .5);
+    box-shadow: inset 0 $push-size/24 0 lighten($push-white, 5%),
+      inset 0 (-$push-size/24) $push-size/60 darken($push-white, 5%),
+      0 0 $push-size/60 $push-white,
+      inset 0 0 $push-size/30 darken($push-white, 15%),
+      inset 0 0 $push-size/30 transparentize($bg, 0.5),
+      inset 0 0 $push-size/60 $push-size/12 $push-white,
+      inset 0 (-$push-size/30) $push-size/40 $push-size/10
+        transparentize($bg, 0.3),
+      inset 0 0 $push-size/60 $push-size/10 darken($push-white, 20%),
+      inset 0 0 $push-size/60 $push-size/10 transparentize($bg, 0.3),
+      inset 0 0 $push-size/120 $push-size/9.2 darken($push-white, 50%),
+      inset 0 0 $push-size/120 $push-size/8
+        transparentize(lighten($push-white, 30%), 0.3),
+      inset 0 $push-size/20 0 $push-size/8.5
+        transparentize(lighten($push-white, 15%), 0.3),
+      inset 0 (-$push-size/20) $push-size/60 $push-size/8.5
+        transparentize(darken($push-white, 10%), 0.8),
+      inset 0 0 0 $push-size/5.5 $push-white,
+      inset 0 $push-size/2.5 $push-size/7.5 darken($push-white, 5%),
+      inset 0 0 $push-size/10 $push-size/6 darken($push-white, 10%),
+      0 $push-size/40 $push-size/20 rgba(0, 0, 0, 0.5);
   }
-
-  
-    &:active,
+  &.green {
+    box-shadow: inset 0 $push-size/24 0 lighten($push-green, 5%),
+      inset 0 (-$push-size/24) $push-size/60 darken($push-green, 5%),
+      0 0 $push-size/60 $push-green,
+      inset 0 0 $push-size/30 darken($push-green, 15%),
+      inset 0 0 $push-size/30 transparentize($bg, 0.5),
+      inset 0 0 $push-size/60 $push-size/12 $push-green,
+      inset 0 (-$push-size/30) $push-size/40 $push-size/10
+        transparentize($bg, 0.3),
+      inset 0 0 $push-size/60 $push-size/10 darken($push-green, 20%),
+      inset 0 0 $push-size/60 $push-size/10 transparentize($bg, 0.3),
+      inset 0 0 $push-size/120 $push-size/9.2 darken($push-green, 50%),
+      inset 0 0 $push-size/120 $push-size/8
+        transparentize(lighten($push-green, 30%), 0.3),
+      inset 0 $push-size/20 0 $push-size/8.5
+        transparentize(lighten($push-green, 15%), 0.3),
+      inset 0 (-$push-size/20) $push-size/60 $push-size/8.5
+        transparentize(darken($push-green, 10%), 0.8),
+      inset 0 0 0 $push-size/5.5 $push-green,
+      inset 0 $push-size/2.5 $push-size/7.5 darken($push-green, 5%),
+      inset 0 0 $push-size/10 $push-size/6 darken($push-green, 10%),
+      0 $push-size/40 $push-size/20 rgba(0, 0, 0, 0.5);
+  }
+  &:active,
     // &:hover,
     &.is-pushed {
-      &.red {
-        box-shadow: 
-        inset 0 $push-size/24 0 lighten($push-red, 5%),
+    &.red {
+      box-shadow: inset 0 $push-size/24 0 lighten($push-red, 5%),
         inset 0 (-$push-size/24) $push-size/60 darken($push-red, 5%),
         0 0 $push-size/60 $push-red,
         inset 0 0 $push-size/30 darken($push-red, 15%),
-        inset 0 0 $push-size/30 transparentize($bg, .5),
+        inset 0 0 $push-size/30 transparentize($bg, 0.5),
         inset 0 0 $push-size/60 $push-size/12 $push-red,
-        inset 0 (-$push-size/30) $push-size/40 $push-size/10 transparentize($bg, .3),
+        inset 0 (-$push-size/30) $push-size/40 $push-size/10
+          transparentize($bg, 0.3),
         inset 0 0 $push-size/60 $push-size/10 darken($push-red, 20%),
-        inset 0 0 $push-size/60 $push-size/10 transparentize($bg, .3),
+        inset 0 0 $push-size/60 $push-size/10 transparentize($bg, 0.3),
         inset 0 0 $push-size/40 $push-size/8.5 darken($push-red, 40%),
-        inset 0 0 $push-size/120 $push-size/7.5 transparentize(lighten($push-red, 30%), .8),
-        inset 0 $push-size/20 0 28px transparentize(lighten($push-red, 15%), .5),
-        inset 0 (-$push-size/20) $push-size/60 28px transparentize(darken($push-red, 20%), .8),
+        inset 0 0 $push-size/120 $push-size/7.5
+          transparentize(lighten($push-red, 30%), 0.8),
+        inset 0 $push-size/20 0 28px
+          transparentize(lighten($push-red, 15%), 0.5),
+        inset 0 (-$push-size/20) $push-size/60 28px
+          transparentize(darken($push-red, 20%), 0.8),
         inset 0 0 0 $push-size/5.5 darken($push-red, 3%),
         inset 0 $push-size/2.5 $push-size/7.5 darken($push-red, 8%),
         inset 0 0 $push-size/10 $push-size/6 darken($push-red, 15%),
-        0 $push-size/40 $push-size/20 rgba(0, 0, 0, .5);
-        background-color: darken($push-red, 2%);
-        &:before {
-          background: transparentize(lighten($push-red, 30%), .8);
-          background: linear-gradient(to top, transparentize(lighten($push-red, 40%), .7) 0%, transparentize($push-red, .9) 100%);
-         
-        }
+        0 $push-size/40 $push-size/20 rgba(0, 0, 0, 0.5);
+      background-color: darken($push-red, 2%);
+      &:before {
+        background: transparentize(lighten($push-red, 30%), 0.8);
+        background: linear-gradient(
+          to top,
+          transparentize(lighten($push-red, 40%), 0.7) 0%,
+          transparentize($push-red, 0.9) 100%
+        );
       }
-      &.white {
-        box-shadow: 
-        inset 0 $push-size/24 0 lighten($push-white, 5%),
+    }
+    &.white {
+      box-shadow: inset 0 $push-size/24 0 lighten($push-white, 5%),
         inset 0 (-$push-size/24) $push-size/60 darken($push-white, 5%),
         0 0 $push-size/60 $push-white,
         inset 0 0 $push-size/30 darken($push-white, 15%),
-        inset 0 0 $push-size/30 transparentize($bg, .5),
+        inset 0 0 $push-size/30 transparentize($bg, 0.5),
         inset 0 0 $push-size/60 $push-size/12 $push-white,
-        inset 0 (-$push-size/30) $push-size/40 $push-size/10 transparentize($bg, .3),
+        inset 0 (-$push-size/30) $push-size/40 $push-size/10
+          transparentize($bg, 0.3),
         inset 0 0 $push-size/60 $push-size/10 darken($push-white, 20%),
-        inset 0 0 $push-size/60 $push-size/10 transparentize($bg, .3),
+        inset 0 0 $push-size/60 $push-size/10 transparentize($bg, 0.3),
         inset 0 0 $push-size/40 $push-size/8.5 darken($push-white, 40%),
-        inset 0 0 $push-size/120 $push-size/7.5 transparentize(lighten($push-white, 30%), .8),
-        inset 0 $push-size/20 0 28px transparentize(lighten($push-white, 15%), .5),
-        inset 0 (-$push-size/20) $push-size/60 28px transparentize(darken($push-white, 20%), .8),
+        inset 0 0 $push-size/120 $push-size/7.5
+          transparentize(lighten($push-white, 30%), 0.8),
+        inset 0 $push-size/20 0 28px
+          transparentize(lighten($push-white, 15%), 0.5),
+        inset 0 (-$push-size/20) $push-size/60 28px
+          transparentize(darken($push-white, 20%), 0.8),
         inset 0 0 0 $push-size/5.5 darken($push-white, 3%),
         inset 0 $push-size/2.5 $push-size/7.5 darken($push-white, 8%),
         inset 0 0 $push-size/10 $push-size/6 darken($push-white, 15%),
-        0 $push-size/40 $push-size/20 rgba(0, 0, 0, .5);
-        background-color: darken($push-white, 2%);
-        &:before {
-          background: transparentize(lighten($push-white, 30%), .8);
-          background: linear-gradient(to top, transparentize(lighten($push-white, 40%), .7) 0%, transparentize($push-white, .9) 100%);
-         
-        }
-      }
-  
+        0 $push-size/40 $push-size/20 rgba(0, 0, 0, 0.5);
+      background-color: darken($push-white, 2%);
       &:before {
-        opacity: .5;
+        background: transparentize(lighten($push-white, 30%), 0.8);
+        background: linear-gradient(
+          to top,
+          transparentize(lighten($push-white, 40%), 0.7) 0%,
+          transparentize($push-white, 0.9) 100%
+        );
       }
     }
-  
+
+    &.green {
+      box-shadow: inset 0 $push-size/24 0 lighten($push-green, 5%),
+        inset 0 (-$push-size/24) $push-size/60 darken($push-green, 5%),
+        0 0 $push-size/60 $push-green,
+        inset 0 0 $push-size/30 darken($push-green, 15%),
+        inset 0 0 $push-size/30 transparentize($bg, 0.5),
+        inset 0 0 $push-size/60 $push-size/12 $push-green,
+        inset 0 (-$push-size/30) $push-size/40 $push-size/10
+          transparentize($bg, 0.3),
+        inset 0 0 $push-size/60 $push-size/10 darken($push-green, 20%),
+        inset 0 0 $push-size/60 $push-size/10 transparentize($bg, 0.3),
+        inset 0 0 $push-size/40 $push-size/8.5 darken($push-green, 40%),
+        inset 0 0 $push-size/120 $push-size/7.5
+          transparentize(lighten($push-green, 30%), 0.8),
+        inset 0 $push-size/20 0 28px
+          transparentize(lighten($push-green, 15%), 0.5),
+        inset 0 (-$push-size/20) $push-size/60 28px
+          transparentize(darken($push-green, 20%), 0.8),
+        inset 0 0 0 $push-size/5.5 darken($push-green, 3%),
+        inset 0 $push-size/2.5 $push-size/7.5 darken($push-green, 8%),
+        inset 0 0 $push-size/10 $push-size/6 darken($push-green, 15%),
+        0 $push-size/40 $push-size/20 rgba(0, 0, 0, 0.5);
+      background-color: darken($push-green, 2%);
+      &:before {
+        background: transparentize(lighten($push-green, 30%), 0.8);
+        background: linear-gradient(
+          to top,
+          transparentize(lighten($push-green, 40%), 0.7) 0%,
+          transparentize($push-green, 0.9) 100%
+        );
+      }
+    }
+
     &:before {
-      content: '';
-      position: absolute;
-      bottom: $push-size/4.5;
-      left: $push-size/3.6;
-      display: block;
-      width: $push-size/2.2;
-      height: $push-size/3.3;
-      border-radius: 40% 40% 60% 60%;
-      transition: opacity $transition-time;
+      opacity: 0.5;
     }
   }
+
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: $push-size/4.5;
+    left: $push-size/3.6;
+    display: block;
+    width: $push-size/2.2;
+    height: $push-size/3.3;
+    border-radius: 40% 40% 60% 60%;
+    transition: opacity $transition-time;
+  }
+}
