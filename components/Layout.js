@@ -6,15 +6,13 @@ import ArcadeButton from "./GalagaComponents/ArcadeButton";
 import Meta from "../components/Meta";
 import Starfield from "./StarComponents/Starfield";
 import Spaceship from "./GalagaComponents/Spaceship";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 import GalagaContainer from "./GalagaComponents/GalagaContainer";
 
 const Layout = ({ children }) => {
   const { pathname } = useRouter();
 
   const [isInverted, setIsInverted] = useState(false);
-
-
 
   return (
     <div className={`${styles.container} ${isInverted ? styles.invert : ""}`}>
@@ -26,9 +24,7 @@ const Layout = ({ children }) => {
         >
           <div>
             {children}
-            {pathname !== "/contact" && 
-            <GalagaContainer/>} 
-            
+            {pathname !== "/contact" && <GalagaContainer />}
           </div>
           <Starfield isInverted={isInverted} />
         </div>

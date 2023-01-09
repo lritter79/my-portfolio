@@ -5,13 +5,25 @@ $push-green: hsl(151, 49%, 45%);
 $transition-time: 10ms;
 $push-size: 50px;
 
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  > p,
+  button {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 .push {
   position: relative;
   display: inline-block;
   width: $push-size;
   height: $push-size;
   border: 0;
-  margin: 1em;
+  margin-bottom: 1vw;
+
   outline: none;
   border-radius: 50%;
   cursor: pointer;
