@@ -103,13 +103,7 @@ function GalagaContainer() {
         {galagaFeatureReady && (
           <button
             type="button"
-            callbackFxn={() => {
-              const handlePermission = async () => {
-                let access = await requestAccess();
-              };
-
-              handlePermission();
-            }}
+            
             title="Play"
           >
             {orientationError ? `${orientationError}` : "Play"}
@@ -117,6 +111,13 @@ function GalagaContainer() {
         )}
         <ArcadeButton callbackFxn={clickHandler} title={<p>Fire</p>} />
         <ArcadeButton
+        callbackFxn={() => {
+          const handlePermission = async () => {
+            let access = await requestAccess();
+          };
+
+          handlePermission();
+        }}
           title={
             <>
               <p>Start</p>
