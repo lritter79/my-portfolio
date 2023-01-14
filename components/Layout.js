@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useReducer, useEffect } from "react";
 import Footer from "../components/Footer";
 import styles from "../styles/Home.module.sass";
 import CustomHeader from "../components/CustomHeader";
+import ArcadeButton from "./GalagaComponents/ArcadeButton";
 import Meta from "../components/Meta";
 import Starfield from "./StarComponents/Starfield";
+import Spaceship from "./GalagaComponents/Spaceship";
+import { useRouter } from "next/router";
+import GalagaContainer from "./GalagaComponents/GalagaContainer";
 
 const Layout = ({ children }) => {
+  const { pathname } = useRouter();
+
   const [isInverted, setIsInverted] = useState(false);
 
   return (
@@ -16,7 +22,10 @@ const Layout = ({ children }) => {
         <div
           className={`nes-container is-dark with-title ${styles.innerContainer}`}
         >
-          {children}
+          <div>
+            {children}
+            {pathname !== "/contact" && <GalagaContainer />}
+          </div>
           <Starfield isInverted={isInverted} />
         </div>
       </main>

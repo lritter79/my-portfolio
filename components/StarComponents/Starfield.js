@@ -3,16 +3,16 @@ import EightBitStar from "./EightBitStar";
 import { colorArr } from "../../data/colorArray";
 import { useTrail, animated } from "react-spring";
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 function createStarArray() {
   let starArr = [];
   for (let i = 0; i < 100; i++) {
     const star = {
       color: `hsl(${Math.random() * 360},100%,50%)`,
-      xPosition: (i % 37) * 4 + 5,
-      yPosition: Math.random() * 100,
+      xPosition: (i % 37) * 4,
       isFlashing: Math.floor(Math.random() * 2) == 1,
-      id: Date.now(),
+      id: uuidv4(),
     };
     starArr.push(star);
   }
@@ -27,11 +27,7 @@ const Starfield = ({ isInverted }) => {
     <>
       {starArray.map((star, i) => {
         return (
-          <EightBitStar
-            isInverted={isInverted}
-            star={star}
-            key={`${star.color}${star.xPosition}${star.yPosition}${star.id}`}
-          />
+          <EightBitStar isInverted={isInverted} star={star} key={star.id} />
         );
       })}
     </>
