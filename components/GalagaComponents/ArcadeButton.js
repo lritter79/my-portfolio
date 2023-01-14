@@ -8,6 +8,7 @@ function ArcadeButton({ color, title, callbackFxn }) {
       <button
         type="button"
         title={title}
+        onClick={callbackFxn}
         className={`${styles.pushSkeuo} ${styles.push} ${
           color === "red"
             ? styles.red
