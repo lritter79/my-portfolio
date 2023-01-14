@@ -93,7 +93,6 @@ function GalagaContainer() {
           title={
             <>
               <p>Start</p>
-              <p>Game</p>
             </>
           }
         />
