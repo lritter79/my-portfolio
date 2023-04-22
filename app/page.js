@@ -1,3 +1,5 @@
+
+'use client';
 import homeStyles from "../styles/Home.module.sass";
 import { useEffect, useReducer, useRef } from "react";
 import NesContainer from "../components/NesContainer";
