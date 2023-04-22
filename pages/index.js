@@ -1,9 +1,5 @@
 import homeStyles from "../styles/Home.module.sass";
-import {
-  useEffect,
-  useReducer,
-  useRef,
-} from "react";
+import { useEffect, useReducer, useRef } from "react";
 import NesContainer from "../components/NesContainer";
 import useSWR from "swr";
 import Skills from "../components/Skills";
@@ -27,44 +23,11 @@ import { useDeviceOrientation } from "../functions/useDeviceOrientation";
 //   return { props: { mostRecentlyUpdated } };
 // };
 
-const directions = ["left", "right"];
-const boundary = 40;
-
 export default function Home() {
-  const { orientation, requestAccess, revokeAccess, orientationError } =
-    useDeviceOrientation();
-
   const repoUrl = `https://api.github.com/users/lritter79/repos`;
   const sleep = (milliseconds) => {
     return new Promise((resolve) => setTimeout(resolve, milliseconds));
   };
-
-  const containerRef = useRef(null);
-  const { width, height } = useContainerDimensions(containerRef);
-  const initialState = { left: width / 2 };
-const galagaFeatureReady = false;
-  function reducer(state, action) {
-    switch (action.type) {
-      case directions[0]:
-        if (state.left - width * 0.03 <= 0 - boundary)
-          return { left: 0 - boundary };
-        return { left: state.left - width * 0.03 };
-      case directions[1]:
-        if (state.left + width * 0.03 >= width + boundary)
-          return { left: width + boundary };
-        return { left: state.left + width * 0.03 };
-      case "reset":
-        return initialState;
-      default:
-        throw new Error();
-    }
-  }
-
-  useEffect(()=> {
-    if (orientation?.gamma && orientation?.gamma < 26 && orientation?.gamma > -26) {
-      state.left = (width / 2) + (orientation.gamma * (width * 0.02));
-    }
-  },[orientation?.gamma])
 
   async function FetchMostRecent(url) {
     await sleep(3000);
@@ -75,39 +38,14 @@ const galagaFeatureReady = false;
       .sort((a, b) => new Date(a.pushed_at) - new Date(b.pushed_at));
     return sortedRepos.length > 0 ? sortedRepos[sortedRepos.length - 1] : null;
   }
+
   const { data, error } = useSWR(repoUrl, FetchMostRecent, 3);
-
-  const [state, dispatch] = useReducer(reducer, initialState);
-
-  // onKeyDown handler function
-  const keyDownHandler = (event) => {
-    if (event.code === "ArrowLeft") {
-      dispatch({ type: "left" });
-    }
-    if (event.code === "ArrowRight") {
-      dispatch({ type: "right" });
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("keydown", keyDownHandler, false);
-    return () => {
-      revokeAccess();
-      window.removeEventListener("keydown", keyDownHandler, false);
-    };
-  }, []);
-
-  useEffect(() => {
-    dispatch({ type: "reset" });
-  }, [width]);
 
   return (
     <NesContainer title="Hello">
       <div className={homeStyles.missle}></div>
       <div>
-        <h5>
-          My name is Levon Ritter. I`m a full stack web developer
-        </h5>
+        <h5>My name is Levon Ritter. I`m a full stack web developer</h5>
       </div>
       {/* <h5>My name is Levon Ritter. I`m a full stack web developer</h5> */}
 
@@ -131,24 +69,6 @@ const galagaFeatureReady = false;
         )}
       </div>
       <Skills />
-      <div className="galaga-container" ref={containerRef}>
-        <Spaceship left={state.left} />
-        {galagaFeatureReady &&
-          <button
-            type="button"
-            onClick={() => {
-              const handlePermission = async () => {
-                let access = await requestAccess();
-              };
-
-              handlePermission();
-            }}
-            title="Play"
-          >
-            {orientationError ? `${orientationError}` : "Play"}
-          </button>          
-        }
-      </div>
     </NesContainer>
   );
 }
