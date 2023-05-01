@@ -38,6 +38,7 @@ export const skillsArray = [
       "Microsoft TFS",
       "Microsoft VS",
       "Circle CI",
+      "Cypress E2E Testing",
       "Deploying Web Apps With Netlify And Vercel",
     ],
     title: "Blockchain Tooling",
