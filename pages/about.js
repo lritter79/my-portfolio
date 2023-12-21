@@ -12,7 +12,7 @@ const about = () => {
         more about full-stack web development. After completing the program, I
         got my first developer role at Civil and Environmental Consultants, Inc.
         My next job was full stack developer at Automated Health Systems. I started at my current company, OtterTune, Inc, in the summer of 2022 as a
-        a Software Engineer I with a focus on front-end engineering. In the past year I've been promoted to Software Engineer II, branching out into fullstack engineering and dev ops. 
+        a Software Engineer I with a focus on front-end engineering. In the past year I&apos;ve been promoted to Software Engineer II, branching out into fullstack engineering and dev ops. 
       </Typography>
     </NesContainer>
   );
