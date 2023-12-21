@@ -1,7 +1,7 @@
 export const skillsArray = [
   {
     title: "Programming Languages",
-    skills: ["C#", "VB.NET", "JS", "Solidity"],
+    skills: ["C#", "VB.NET", "JS", "Solidity", "Python 3"],
   },
   {
     title: "Front End",
@@ -25,23 +25,29 @@ export const skillsArray = [
   },
   {
     title: "Databases",
-    skills: ["Microsoft SQL Server", "EF Core", "LINQ", "AutoMapper"],
+    skills: ["Microsoft SQL Server", "EF Core", "LINQ", "AutoMapper", "Supabase"],
   },
+  {tite:"Testing", skills:[
+    "Selenium",
+    "Chai Unit Testing",
+    "MS unit Testing",
+    "Cypress E2E Testing",
+  ]},
   {
     title: "Development Tools and Techniques",
     skills: [
       "Agile",
-      "Selenium",
-      "Chai Unit Testing",
-      "MS unit Testing",
       "Git",
       "Microsoft TFS",
       "Microsoft VS",
       "Circle CI",
-      "Cypress E2E Testing",
+      "ArgoCD",
       "Deploying Web Apps With Netlify And Vercel",
+      "Prompting With ChatGTP"
     ],
+  },
+  {
     title: "Blockchain Tooling",
     skills: ["Truffle", "Ganache"],
-  },
+  }
 ];

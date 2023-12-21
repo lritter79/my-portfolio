@@ -4,16 +4,17 @@ export const portfolioArray = [
     description:
       "Built with React and the Material UI library. Some special features include session storage for your game and custom hooks. The animations were made with React Spring. Deployed via Netlify.",
     repoUrl: "https://github.com/lritter79/material-ui-mtg-life-calculator",
-    name: "Magic:The Gathering Life Counter",
+    name: "Magic: The Gathering Life Counter",
     siteUrl: "https://gallant-shannon-dc913b.netlify.app",
   },
   {
-    id: 1,
+    id: 4,
     description:
-      "This is just a practice project I made in a few days to try and teach myself Angular and Ionic",
-    repoUrl: "https://github.com/lritter79/ionic-angular-todolist",
-    name: "Angular and Ionic Practice Project",
-    siteUrl: "https://dazzling-shockley-25a0d4.netlify.app",
+      "A Web3 dApp written in React with the web3js and ethers js libraries, as well as solidity for the smart contract and truffle and ganache for testing. I used Ant Design for the UI components. The concept of this app is being able to store contractor's warranties on the blockchain. In this proof of concept, you can deploy a smart warranty and interact with it.",
+    repoUrl: "https://github.com/lritter79/contractor_keeper",
+    name: "ContractorKeeper.com",
+    siteUrl:
+      "https://626a71ea4c447827d6ad9064--incandescent-melba-44196e.netlify.app/",
   },
   {
     id: 2,
@@ -32,12 +33,11 @@ export const portfolioArray = [
     siteUrl: null,
   },
   {
-    id: 4,
+    id: 1,
     description:
-      "A Web3 dApp written in React with the web3js and ethers js libraries, as well as solidity for the smart contract and truffle and ganache for testing. I used Ant Design for the UI components. The concept of this app is being able to store contractor's warranties on the blockchain. In this proof of concept, you can deploy a smart warranty and interact with it.",
-    repoUrl: "https://github.com/lritter79/contractor_keeper",
-    name: "ContractorKeeper.com",
-    siteUrl:
-      "https://626a71ea4c447827d6ad9064--incandescent-melba-44196e.netlify.app/",
+      "This is just a practice project I made in a few days to try and teach myself Angular and Ionic",
+    repoUrl: "https://github.com/lritter79/ionic-angular-todolist",
+    name: "Angular and Ionic Practice Project",
+    siteUrl: "https://dazzling-shockley-25a0d4.netlify.app",
   },
 ];
