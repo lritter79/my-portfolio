@@ -27,7 +27,9 @@ export const skillsArray = [
     title: "Databases",
     skills: ["Microsoft SQL Server", "EF Core", "LINQ", "AutoMapper", "Supabase"],
   },
-  {tite:"Testing", skills:[
+  {
+    title: "Testing", 
+    skills:[
     "Selenium",
     "Chai Unit Testing",
     "MS unit Testing",
