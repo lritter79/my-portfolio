@@ -1,40 +1,66 @@
 export const skillsArray = [
   {
     title: "Programming Languages",
-    skills: ["C#", "VB.NET", "JS", "Solidity", "Python 3"],
+    skills: [
+      "JavaScript",
+      "TypeScript",
+      "Python 3",
+      "C#",
+      "VB.NET",
+      "Solidity",
+    ],
   },
   {
     title: "Front End",
     skills: [
+      "Angular",
+      "Figma",
+      "React",
+      "Redux",
+      "RTK Query",
+      "Material UI",
+      "React Spring Animations",
+      "Storybook",
       "SASS",
       "CSS",
       "JQuery",
-      "Angular 2 and up",
-      "React",
       "Bootstrap",
-      "Material UI",
-      "React Spring Animations",
-      "Ant Design",
-      "Storybook",
-      "Chromatic",
     ],
   },
   {
     title: "Web Application Frameworks",
-    skills: ["ASP.NET Webforms", "ASP.NET MVC", ".NET CORE API", "Next.js"],
+    skills: [
+      "Django",
+      ".NET CORE API",
+      "Next.js",
+      "ASP.NET Webforms",
+      "ASP.NET MVC",
+      "SvelteKit",
+    ],
   },
   {
     title: "Databases",
-    skills: ["Microsoft SQL Server", "EF Core", "LINQ", "AutoMapper", "Supabase"],
+    skills: [
+      "PostgreSQL",
+      "Supabase",
+      "MongoDB",
+      "Microsoft SSMS",
+      "EF Core",
+      "LINQ",
+      "AutoMapper",
+    ],
   },
   {
-    title: "Testing", 
-    skills:[
-    "Selenium",
-    "Chai Unit Testing",
-    "MS unit Testing",
-    "Cypress E2E Testing",
-  ]},
+    title: "Testing",
+    skills: [
+      "Cypress",
+
+      "Selenium",
+      "Chai Unit Testing",
+      "MS Unit Testing",
+      "Jest",
+    ],
+  },
   {
     title: "Development Tools and Techniques",
     skills: [
@@ -42,14 +68,16 @@ export const skillsArray = [
       "Git",
       "Microsoft TFS",
       "Microsoft VS",
+      "Azure Dev Ops",
       "Circle CI",
       "ArgoCD",
       "Deploying Web Apps With Netlify And Vercel",
-      "Prompting With ChatGTP"
+      "Kubernetes",
+      "Docker",
     ],
   },
   {
     title: "Blockchain Tooling",
     skills: ["Truffle", "Ganache"],
-  }
+  },
 ];
