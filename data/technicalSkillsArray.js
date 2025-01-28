@@ -1,6 +1,7 @@
 export const skillsArray = [
   {
     title: "Programming Languages",
+    key: "programmingLanguages",
     skills: [
       "JavaScript",
       "TypeScript",
@@ -8,10 +9,12 @@ export const skillsArray = [
       "C#",
       "VB.NET",
       "Solidity",
+      "Elixir",
     ],
   },
   {
     title: "Front End",
+    key: "frontEnd",
     skills: [
       "Angular",
       "Figma",
@@ -29,6 +32,7 @@ export const skillsArray = [
   },
   {
     title: "Web Application Frameworks",
+    key: "webApplicationFrameworks",
     skills: [
       "Django",
       ".NET CORE API",
@@ -40,6 +44,7 @@ export const skillsArray = [
   },
   {
     title: "Databases",
+    key: "databases",
     skills: [
       "PostgreSQL",
       "Supabase",
@@ -52,9 +57,10 @@ export const skillsArray = [
   },
   {
     title: "Testing",
+    key: "testing",
     skills: [
       "Cypress",
-
+      "Vitest",
       "Selenium",
       "Chai Unit Testing",
       "MS Unit Testing",
@@ -63,6 +69,7 @@ export const skillsArray = [
   },
   {
     title: "Development Tools and Techniques",
+    key: "developmentToolsAndTechniques",
     skills: [
       "Agile",
       "Git",
@@ -78,6 +85,7 @@ export const skillsArray = [
   },
   {
     title: "Blockchain Tooling",
+    key: "blockchainTooling",
     skills: ["Truffle", "Ganache"],
   },
 ];

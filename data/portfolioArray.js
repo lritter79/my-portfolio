@@ -1,5 +1,13 @@
 export const portfolioArray = [
   {
+    id: 5,
+    description:
+      "A React Native app that uses Apollo Client to fetch data from the Hacker News API. The app is styled with the React Native Paper library. This one is a work in progress I did to learn Apollo CLient and GraphQL for a job interview.",
+    repoUrl:
+      "https://github.com/lritter79/apollo-graphql-react-native-hacker-news-clone",
+    name: "React Native Clone of Hacker News",
+  },
+  {
     id: 0,
     description:
       "Built with React and the Material UI library. Some special features include session storage for your game and custom hooks. The animations were made with React Spring. Deployed via Netlify.",
@@ -38,6 +46,5 @@ export const portfolioArray = [
       "This is just a practice project I made in a few days to try and teach myself Angular and Ionic",
     repoUrl: "https://github.com/lritter79/ionic-angular-todolist",
     name: "Angular and Ionic Practice Project",
-    siteUrl: "https://dazzling-shockley-25a0d4.netlify.app",
   },
 ];
