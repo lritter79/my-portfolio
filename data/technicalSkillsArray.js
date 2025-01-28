@@ -1,21 +1,21 @@
 export const skillsArray = [
   {
-    title: "Programming Languages",
-    key: "programmingLanguages",
-    skills: [
+    "title": "Programming Languages",
+    "key": "programmingLanguages",
+    "skills": [
       "JavaScript",
       "TypeScript",
       "Python 3",
       "C#",
       "VB.NET",
       "Solidity",
-      "Elixir",
-    ],
+      "Elixir"
+    ]
   },
   {
-    title: "Front End",
-    key: "frontEnd",
-    skills: [
+    "title": "Front End",
+    "key": "frontEnd",
+    "skills": [
       "Angular",
       "Figma",
       "React",
@@ -27,50 +27,51 @@ export const skillsArray = [
       "SASS",
       "CSS",
       "JQuery",
-      "Bootstrap",
-    ],
+      "Bootstrap"
+    ]
   },
   {
-    title: "Web Application Frameworks",
-    key: "webApplicationFrameworks",
-    skills: [
+    "title": "Web Application Frameworks",
+    "key": "webApplicationFrameworks",
+    "skills": [
       "Django",
       ".NET CORE API",
       "Next.js",
       "ASP.NET Webforms",
       "ASP.NET MVC",
       "SvelteKit",
-    ],
+      "GraphQL"
+    ]
   },
   {
-    title: "Databases",
-    key: "databases",
-    skills: [
+    "title": "Databases",
+    "key": "databases",
+    "skills": [
       "PostgreSQL",
       "Supabase",
       "MongoDB",
       "Microsoft SSMS",
       "EF Core",
       "LINQ",
-      "AutoMapper",
-    ],
+      "AutoMapper"
+    ]
   },
   {
-    title: "Testing",
-    key: "testing",
-    skills: [
+    "title": "Testing",
+    "key": "testing",
+    "skills": [
       "Cypress",
       "Vitest",
       "Selenium",
       "Chai Unit Testing",
       "MS Unit Testing",
-      "Jest",
-    ],
+      "Jest"
+    ]
   },
   {
-    title: "Development Tools and Techniques",
-    key: "developmentToolsAndTechniques",
-    skills: [
+    "title": "Development Tools and Techniques",
+    "key": "developmentToolsAndTechniques",
+    "skills": [
       "Agile",
       "Git",
       "Microsoft TFS",
@@ -80,12 +81,15 @@ export const skillsArray = [
       "ArgoCD",
       "Deploying Web Apps With Netlify And Vercel",
       "Kubernetes",
-      "Docker",
-    ],
+      "Docker"
+    ]
   },
   {
-    title: "Blockchain Tooling",
-    key: "blockchainTooling",
-    skills: ["Truffle", "Ganache"],
-  },
+    "title": "Blockchain Tooling",
+    "key": "blockchainTooling",
+    "skills": [
+      "Truffle",
+      "Ganache"
+    ]
+  }
 ];
