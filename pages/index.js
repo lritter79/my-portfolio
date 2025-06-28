@@ -1,13 +1,9 @@
-import homeStyles from "../styles/Home.module.sass";
-import { useEffect, useReducer, useRef } from "react";
-import NesContainer from "../components/NesContainer";
 import useSWR from "swr";
-import Skills from "../components/Skills";
-import CustomProgressBar from "../components/CustomProgressBar/CustomProgressBar";
-import Spaceship from "../components/GalagaComponents/Spaceship";
 import ChameleonParagraph from "../components/ChameleonParagraph";
-import { useContainerDimensions } from "../functions/useContainerDimensions";
-import { useDeviceOrientation } from "../functions/useDeviceOrientation";
+import CustomProgressBar from "../components/CustomProgressBar/CustomProgressBar";
+import NesContainer from "../components/NesContainer";
+import Skills from "../components/Skills";
+import homeStyles from "../styles/Home.module.sass";
 //this is what fetches the most repo I've been woring on, but it's static, so it's based on the last time the portfolio was commited
 //so I'm commenting this out to switch to dynamically loading the most recent project
 // export const getStaticProps = async () => {
